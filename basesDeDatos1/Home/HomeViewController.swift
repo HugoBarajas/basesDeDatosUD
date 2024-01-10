@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
   var viewModel : HomeViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
-      view.backgroundColor = .systemPink
+      view.backgroundColor = .systemPink // 
         
     }
     
