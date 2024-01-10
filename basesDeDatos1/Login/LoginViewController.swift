@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
   var viewModel : LoginViewModel!
   let user = "Ingenio"
   let password = "1234"
-  
+  var numero = 1
   var userTextField : UITextField = {
     var textField = UITextField()
     textField.placeholder = "Usuario"
