@@ -13,6 +13,17 @@
 		F819F2522B4E32E50042E4F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F819F2502B4E32E50042E4F8 /* Main.storyboard */; };
 		F819F2542B4E32E90042E4F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F819F2532B4E32E90042E4F8 /* Assets.xcassets */; };
 		F819F2572B4E32E90042E4F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F819F2552B4E32E90042E4F8 /* LaunchScreen.storyboard */; };
+		F819F2602B4E33230042E4F8 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F25F2B4E33230042E4F8 /* SplashViewController.swift */; };
+		F819F2622B4E33370042E4F8 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F2612B4E33370042E4F8 /* SplashViewModel.swift */; };
+		F819F2642B4E33480042E4F8 /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F2632B4E33480042E4F8 /* SplashCoordinator.swift */; };
+		F819F2672B4E336F0042E4F8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F2662B4E336F0042E4F8 /* LoginViewModel.swift */; };
+		F819F2692B4E337E0042E4F8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F2682B4E337E0042E4F8 /* LoginViewController.swift */; };
+		F819F26B2B4E33900042E4F8 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F26A2B4E33900042E4F8 /* LoginCoordinator.swift */; };
+		F819F26D2B4E33B50042E4F8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F26C2B4E33B50042E4F8 /* Utils.swift */; };
+		F819F26F2B4E33C70042E4F8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F26E2B4E33C70042E4F8 /* AppCoordinator.swift */; };
+		F819F2722B4E37710042E4F8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F2712B4E37710042E4F8 /* HomeViewController.swift */; };
+		F819F2742B4E37820042E4F8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F2732B4E37820042E4F8 /* HomeViewModel.swift */; };
+		F819F2762B4E37910042E4F8 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F2752B4E37910042E4F8 /* HomeCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +35,17 @@
 		F819F2532B4E32E90042E4F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F819F2562B4E32E90042E4F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F819F2582B4E32E90042E4F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F819F25F2B4E33230042E4F8 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		F819F2612B4E33370042E4F8 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		F819F2632B4E33480042E4F8 /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
+		F819F2662B4E336F0042E4F8 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F819F2682B4E337E0042E4F8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F819F26A2B4E33900042E4F8 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		F819F26C2B4E33B50042E4F8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		F819F26E2B4E33C70042E4F8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		F819F2712B4E37710042E4F8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F819F2732B4E37820042E4F8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F819F2752B4E37910042E4F8 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +78,11 @@
 		F819F2492B4E32E50042E4F8 /* basesDeDatos1 */ = {
 			isa = PBXGroup;
 			children = (
+				F819F2702B4E372E0042E4F8 /* Home */,
+				F819F26E2B4E33C70042E4F8 /* AppCoordinator.swift */,
+				F819F26C2B4E33B50042E4F8 /* Utils.swift */,
+				F819F2652B4E334E0042E4F8 /* Login */,
+				F819F25E2B4E33030042E4F8 /* Splash */,
 				F819F24A2B4E32E50042E4F8 /* AppDelegate.swift */,
 				F819F24C2B4E32E50042E4F8 /* SceneDelegate.swift */,
 				F819F24E2B4E32E50042E4F8 /* ViewController.swift */,
@@ -65,6 +92,36 @@
 				F819F2582B4E32E90042E4F8 /* Info.plist */,
 			);
 			path = basesDeDatos1;
+			sourceTree = "<group>";
+		};
+		F819F25E2B4E33030042E4F8 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				F819F25F2B4E33230042E4F8 /* SplashViewController.swift */,
+				F819F2612B4E33370042E4F8 /* SplashViewModel.swift */,
+				F819F2632B4E33480042E4F8 /* SplashCoordinator.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		F819F2652B4E334E0042E4F8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F819F2682B4E337E0042E4F8 /* LoginViewController.swift */,
+				F819F2662B4E336F0042E4F8 /* LoginViewModel.swift */,
+				F819F26A2B4E33900042E4F8 /* LoginCoordinator.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F819F2702B4E372E0042E4F8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F819F2712B4E37710042E4F8 /* HomeViewController.swift */,
+				F819F2732B4E37820042E4F8 /* HomeViewModel.swift */,
+				F819F2752B4E37910042E4F8 /* HomeCoordinator.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +195,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F819F26F2B4E33C70042E4F8 /* AppCoordinator.swift in Sources */,
+				F819F2622B4E33370042E4F8 /* SplashViewModel.swift in Sources */,
 				F819F24F2B4E32E50042E4F8 /* ViewController.swift in Sources */,
 				F819F24B2B4E32E50042E4F8 /* AppDelegate.swift in Sources */,
+				F819F2642B4E33480042E4F8 /* SplashCoordinator.swift in Sources */,
+				F819F2762B4E37910042E4F8 /* HomeCoordinator.swift in Sources */,
+				F819F2692B4E337E0042E4F8 /* LoginViewController.swift in Sources */,
+				F819F26D2B4E33B50042E4F8 /* Utils.swift in Sources */,
 				F819F24D2B4E32E50042E4F8 /* SceneDelegate.swift in Sources */,
+				F819F2742B4E37820042E4F8 /* HomeViewModel.swift in Sources */,
+				F819F26B2B4E33900042E4F8 /* LoginCoordinator.swift in Sources */,
+				F819F2602B4E33230042E4F8 /* SplashViewController.swift in Sources */,
+				F819F2672B4E336F0042E4F8 /* LoginViewModel.swift in Sources */,
+				F819F2722B4E37710042E4F8 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
