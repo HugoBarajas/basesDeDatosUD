@@ -12,7 +12,7 @@ class LoginViewController: UIViewController {
   
   var viewModel : LoginViewModel!
   let user = "Ingenio"
-  let password = "Ingenio01"
+  let password = "1234"
   
   var userTextField : UITextField = {
     var textField = UITextField()
@@ -65,11 +65,11 @@ class LoginViewController: UIViewController {
     
     if usuarioTF == user && paswordTF == password{
       
-      let action = UIAlertAction(title: "OK", style: .default) { [self] _ in
+
        print("Ir al home")
         viewModel.goToHome()
-      }
-      alerta(titulo: "Felicidades", mensaje: "Ahora si mis amiguitos les voy a interpretar", actions: [action])
+     
+      
       
     }else{
       
