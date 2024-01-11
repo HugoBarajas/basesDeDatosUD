@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
     
     func initUI(){
         view.addSubview(ana)
-        ana.addAnchorsAndSize(width: 150, height: 150, left: 10, top: 30, right: nil, bottom: nil)
+        ana.addAnchorsAndSize(width: 150, height: 150, left: 10, top: 65, right: nil, bottom: nil)
     }
 
 
