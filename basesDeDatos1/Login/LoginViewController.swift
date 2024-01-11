@@ -66,6 +66,8 @@ class LoginViewController: UIViewController {
     if usuarioTF == user && paswordTF == password{
       
       UserDefaults.standard.setValue(true, forKey: "isLogged")
+      
+      UserDefaults.standard.setValue(UIDevice.current.batteryLevel, forKey: "bateryLevel")
 
        print("Ir al home")
         viewModel.goToHome()
