@@ -8,25 +8,36 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
-  var viewModel : HomeViewModel!
+    
+    
+    let imageJanelly: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "janelly")
+        return image
+    }()
+    
+    
+    var viewModel : HomeViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
-      view.backgroundColor = .systemPink // 
+        view.backgroundColor = .systemPink //
         
-      initUI()
+        initUI()
     }
     
-  
-  func initUI(){
-    initTekiCard()
-  }
+    
+    func initUI(){
+        initJanelly()
+        
+        
+    }
+    
+    
+    func initJanelly() {
+        view.addSubview(imageJanelly)
+        imageJanelly.addAnchorsAndCenter(centerX: false, centerY: true, width: 150, height: 150, left: 15, top: nil, right: nil, bottom: nil)
 
-  
-  
-  func initTekiCard(){
-    // Aqui van a crear su tarjrta de su foto
-  }
-
+        
+    }
 }
 
