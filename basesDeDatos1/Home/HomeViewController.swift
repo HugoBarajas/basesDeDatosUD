@@ -18,22 +18,31 @@ class HomeViewController: UIViewController {
 
   var hugoPhoto : UIImageView = {
       var image = UIImageView()
-      image.image = UIImage(named: "hugo")
+      image.image = UIImage(named: "Hugo")
       image.contentMode = .scaleAspectFill
     
       return image
     }()
 
   var viewModel : HomeViewModel!
+    
+    var ana : UIImageView = {
+      var imageAna = UIImageView()
+      imageAna.image = UIImage(named: "Ana")
+      imageAna.contentMode = .scaleAspectFill
+        return imageAna
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      view.backgroundColor = .systemPink // 
-        
+      view.backgroundColor = .systemPink
+      view.backgroundColor = .systemPink
+   
       initUI()
     }
  
   func initUI(){
-
+      initAnaCard()
     initVicCard()
     initTekiCard()
       initVictorHugo()
@@ -53,9 +62,15 @@ class HomeViewController: UIViewController {
       view.addSubview(imageVic)
       imageVic.addAnchorsAndSize(width: 150, height: 150, left: nil, top: nil, right: 15, bottom: 75)
     
+    
 
   }
 
+    func initAnaCard(){
+        view.addSubview(ana)
+        ana.addAnchorsAndSize(width: 150, height: 150, left: 10, top: 65, right: nil, bottom: nil)
+    }
+    
   func initTekiCard(){
     // Aqui van a crear su tarjrta de su foto
 
