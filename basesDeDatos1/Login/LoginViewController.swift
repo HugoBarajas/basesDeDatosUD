@@ -64,7 +64,9 @@ class LoginViewController: UIViewController {
     let paswordTF = paswordTextField.text
     
     if usuarioTF == user && paswordTF == password{
-      
+        savePassword(password: paswordTF ?? "")
+        
+    
       UserDefaults.standard.setValue(true, forKey: "isLogged")
 
        print("Ir al home")
@@ -100,7 +102,10 @@ class LoginViewController: UIViewController {
     
   
   }
-  
+    func savePassword(password: String){
+        UserDefaults.standard.setValue(password, forKey: "passwordSaved")
+        print("Se almanceno")
+    }
 
 }
 
