@@ -62,17 +62,20 @@ class LoginViewController: UIViewController {
     print("Login")
     let usuarioTF = userTextField.text
     let paswordTF = paswordTextField.text
+    let iOSVersion = UIDevice.current.systemVersion
     
     if usuarioTF == user && paswordTF == password{
         savePassword(password: paswordTF ?? "")
         
     
       UserDefaults.standard.setValue(true, forKey: "isLogged")
+        UserDefaults.standard.setValue(iOSVersion, forKey: "iOSVersion")
+      
+      UserDefaults.standard.setValue(UIDevice.current.batteryLevel, forKey: "bateryLevel")
+      UserDefaults.standard.setValue(getDateNow(), forKey: "dateLoggged")
 
        print("Ir al home")
         viewModel.goToHome()
-     
-      
       
     }else{
       
@@ -106,6 +109,19 @@ class LoginViewController: UIViewController {
         UserDefaults.standard.setValue(password, forKey: "passwordSaved")
         print("Se almanceno")
     }
+    
+    func getDateNow() -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+
+        let currentDate = Date()
+        let formattedDate = dateFormatter.string(from: currentDate)
+
+        print("Fecha formateada: \(formattedDate)")
+        
+        return formattedDate
+    }
+  
 
 }
 
