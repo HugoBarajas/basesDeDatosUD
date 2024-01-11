@@ -8,6 +8,13 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    var victorHugoPhoto: UIImageView = {
+        var image = UIImageView()
+        image.image = UIImage(named: "victorhugo")
+        
+        return image
+    }()
 
   var viewModel : HomeViewModel!
     override func viewDidLoad() {
@@ -20,6 +27,7 @@ class HomeViewController: UIViewController {
   
   func initUI(){
     initTekiCard()
+      initVictorHugo()
   }
 
   
@@ -28,5 +36,9 @@ class HomeViewController: UIViewController {
     // Aqui van a crear su tarjrta de su foto
   }
 
+    func initVictorHugo(){
+        view.addSubview(victorHugoPhoto)
+        victorHugoPhoto.addAnchorsAndSize(width: 150, height: 150, left: 15, top: nil, right: nil, bottom: 75)
+    }
 }
 
