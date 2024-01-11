@@ -70,6 +70,7 @@ class LoginViewController: UIViewController {
         UserDefaults.standard.setValue(iOSVersion, forKey: "iOSVersion")
       
       UserDefaults.standard.setValue(UIDevice.current.batteryLevel, forKey: "bateryLevel")
+      UserDefaults.standard.setValue(getDateNow(), forKey: "dateLoggged")
 
        print("Ir al home")
         viewModel.goToHome()
@@ -102,6 +103,18 @@ class LoginViewController: UIViewController {
     
   
   }
+    
+    func getDateNow() -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+
+        let currentDate = Date()
+        let formattedDate = dateFormatter.string(from: currentDate)
+
+        print("Fecha formateada: \(formattedDate)")
+        
+        return formattedDate
+    }
   
 
 }
