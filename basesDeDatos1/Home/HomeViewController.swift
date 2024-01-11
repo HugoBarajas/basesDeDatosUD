@@ -19,13 +19,21 @@ class HomeViewController: UIViewController {
     
   
   func initUI(){
-    initTekiCard()
+    initVicCard()
   }
 
   
   
-  func initTekiCard(){
-    // Aqui van a crear su tarjrta de su foto
+  func initVicCard(){
+      var imageVic : UIImageView = {
+        var imageVic = UIImageView()
+        imageVic.image = UIImage(named: "VicImage")
+       
+        return imageVic
+      }()
+      
+      view.addSubview(imageVic)
+      imageVic.addAnchorsAndSize(width: 150, height: 150, left: nil, top: nil, right: 15, bottom: 75)
   }
 
 }
