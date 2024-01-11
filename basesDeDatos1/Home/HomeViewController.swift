@@ -8,6 +8,13 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    var victorHugoPhoto: UIImageView = {
+        var image = UIImageView()
+        image.image = UIImage(named: "victorhugo")
+        
+        return image
+    }()
 
   var viewModel : HomeViewModel!
     override func viewDidLoad() {
@@ -19,7 +26,12 @@ class HomeViewController: UIViewController {
     
   
   func initUI(){
+<<<<<<< HEAD
     initVicCard()
+=======
+    initTekiCard()
+      initVictorHugo()
+>>>>>>> 77bfbd6e1d0f401fabccd77867e7d260f4b5fd95
   }
 
   
@@ -36,5 +48,9 @@ class HomeViewController: UIViewController {
       imageVic.addAnchorsAndSize(width: 150, height: 150, left: nil, top: nil, right: 15, bottom: 75)
   }
 
+    func initVictorHugo(){
+        view.addSubview(victorHugoPhoto)
+        victorHugoPhoto.addAnchorsAndSize(width: 150, height: 150, left: 15, top: nil, right: nil, bottom: 75)
+    }
 }
 
