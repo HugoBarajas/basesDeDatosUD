@@ -66,6 +66,7 @@ class LoginViewController: UIViewController {
     if usuarioTF == user && paswordTF == password{
       
       UserDefaults.standard.setValue(true, forKey: "isLogged")
+      UserDefaults.standard.setValue(getDateNow(), forKey: "dateLoggged")
 
        print("Ir al home")
         viewModel.goToHome()
@@ -100,6 +101,18 @@ class LoginViewController: UIViewController {
     
   
   }
+    
+    func getDateNow() -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+
+        let currentDate = Date()
+        let formattedDate = dateFormatter.string(from: currentDate)
+
+        print("Fecha formateada: \(formattedDate)")
+        
+        return formattedDate
+    }
   
 
 }
