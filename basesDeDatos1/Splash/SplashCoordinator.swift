@@ -30,4 +30,10 @@ class SplashCoordinator : Coordinator{
     coordinatorLogin.startCoordinator()
   }
   
+  func goToHome(){
+    let coordinatorLogin = HomeCoordinator(navigationController: navigationController)
+    childCoordinator.append(coordinatorLogin)
+    coordinatorLogin.startCoordinator()
+  }
+  
 }
