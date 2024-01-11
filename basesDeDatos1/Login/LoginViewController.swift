@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
     let paswordTF = paswordTextField.text
     
     if usuarioTF == user && paswordTF == password{
-      
+        UserDefaults.standard.setValue(usuarioTF, forKey: "usuariosalvado")
       UserDefaults.standard.setValue(true, forKey: "isLogged")
 
        print("Ir al home")
