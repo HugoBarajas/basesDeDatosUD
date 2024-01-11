@@ -13,4 +13,9 @@ class SplashViewModel{
   func goToLogin(){
     coordinator.goToLogin()
   }
+  
+  
+   func goToHome(){
+     coordinator.goToHome()
+   }
 }

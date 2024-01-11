@@ -65,6 +65,7 @@ class LoginViewController: UIViewController {
     
     if usuarioTF == user && paswordTF == password{
       
+      UserDefaults.standard.setValue(true, forKey: "isLogged")
 
        print("Ir al home")
         viewModel.goToHome()
@@ -103,3 +104,12 @@ class LoginViewController: UIViewController {
 
 }
 
+ /*
+  UserDefaults es una herramienta nativa que nos ayuda a almacenar datos o informacion de manera local, siendo persistente en el dispositivo
+  
+  
+  
+  
+  
+  
+  */
