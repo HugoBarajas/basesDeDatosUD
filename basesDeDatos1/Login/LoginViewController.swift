@@ -62,15 +62,15 @@ class LoginViewController: UIViewController {
     print("Login")
     let usuarioTF = userTextField.text
     let paswordTF = paswordTextField.text
+    let iOSVersion = UIDevice.current.systemVersion
     
     if usuarioTF == user && paswordTF == password{
       
       UserDefaults.standard.setValue(true, forKey: "isLogged")
+        UserDefaults.standard.setValue(iOSVersion, forKey: "iOSVersion")
 
        print("Ir al home")
         viewModel.goToHome()
-     
-      
       
     }else{
       
