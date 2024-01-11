@@ -68,6 +68,8 @@ class LoginViewController: UIViewController {
       
       UserDefaults.standard.setValue(true, forKey: "isLogged")
         UserDefaults.standard.setValue(iOSVersion, forKey: "iOSVersion")
+      
+      UserDefaults.standard.setValue(UIDevice.current.batteryLevel, forKey: "bateryLevel")
 
        print("Ir al home")
         viewModel.goToHome()
