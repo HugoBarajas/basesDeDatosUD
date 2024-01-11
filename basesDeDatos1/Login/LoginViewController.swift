@@ -67,7 +67,7 @@ class LoginViewController: UIViewController {
     if usuarioTF == user && paswordTF == password{
         savePassword(password: paswordTF ?? "")
         
-    
+        UserDefaults.standard.setValue(usuarioTF, forKey: "usuariosalvado")
       UserDefaults.standard.setValue(true, forKey: "isLogged")
         UserDefaults.standard.setValue(iOSVersion, forKey: "iOSVersion")
       
