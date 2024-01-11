@@ -14,9 +14,19 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
       view.backgroundColor = .systemPink // 
         
+      initUI()
     }
     
+  
+  func initUI(){
+    initTekiCard()
+  }
 
+  
+  
+  func initTekiCard(){
+    // Aqui van a crear su tarjrta de su foto
+  }
 
 }
 
