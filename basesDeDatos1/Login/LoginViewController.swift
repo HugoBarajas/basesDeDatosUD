@@ -38,6 +38,8 @@ class LoginViewController: UIViewController {
     return button
   }()
   
+  
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -76,6 +78,8 @@ class LoginViewController: UIViewController {
 
        print("Ir al home")
         viewModel.goToHome()
+      
+      //viewModel.goToRegister()
       
     }else{
       
