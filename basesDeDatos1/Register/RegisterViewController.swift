@@ -22,11 +22,31 @@ initUI()
     textField.backgroundColor = .white
     return textField
   }()
+    
+    var lastName : UITextField = {
+      var textField = UITextField()
+      textField.placeholder = "Apellido Paterno"
+      textField.backgroundColor = .white
+      return textField
+    }()
+    
+    var mothersMaidenName : UITextField = {
+      var textField = UITextField()
+      textField.placeholder = "Apellido Materno"
+      textField.backgroundColor = .white
+      return textField
+    }()
   
   
   func initUI(){
     view.addSubview(names)
     names.addAnchorsAndCenter(centerX: true, centerY: false, width: 500, height: 50, left: nil, top: 90, right: nil, bottom: nil)
+      
+      view.addSubview(lastName)
+      lastName.addAnchorsAndCenter(centerX: true, centerY: false, width: 500, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: names)
+      
+      view.addSubview(mothersMaidenName)
+      mothersMaidenName.addAnchorsAndCenter(centerX: true, centerY: false, width: 500, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: lastName)
     
     
   }
