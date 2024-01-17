@@ -7,6 +7,14 @@
 
 import UIKit
 
+
+var phoneNumberTextField : UITextField = {
+    var pNumberTF = UITextField()
+    pNumberTF.placeholder = "Telefono Celular"
+    pNumberTF.keyboardType = .numberPad
+    return pNumberTF
+}()
+
 class RegisterViewController: UIViewController {
   var viewModel : RegisterViewModel!
     override func viewDidLoad() {
