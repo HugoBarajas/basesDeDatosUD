@@ -39,8 +39,16 @@ class LoginViewController: UIViewController {
         var textField = UITextField()
         textField.placeholder = "Contraseña"
         textField.backgroundColor = .white
-        textField.isSecureTextEntry = true //propiedad que hace que no se vean los caracteres   que se escriben en el textField
+        textField.isSecureTextEntry = true
+        //propiedad que hace que no se vean los caracteres   que se escriben en el textField
         return textField
+    }()
+     
+    var viewPasswordButton: UIButton = {
+        var button = UIButton()
+        button.setImage(UIImage(named: "eye-close"), for: .normal)
+        button.tintColor = .black
+        return button
     }()
     
     var loginButton : UIButton = {
@@ -82,6 +90,11 @@ class LoginViewController: UIViewController {
         view.addSubview(paswordTextField)
         paswordTextField.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 50, height: 35, left: nil, top: 35, right: nil, bottom: nil, withAnchor: .top, relativeToView: userTextField)
         
+        view.addSubview(viewPasswordButton)
+        viewPasswordButton.addAnchorsAndSize(width: 30, height: 30, left: nil, top: nil, right: 20, bottom: nil)
+        viewPasswordButton.addAnchors(left: nil, top: 37.5, right: nil, bottom: nil, withAnchor: .top, relativeToView: userTextField)
+        viewPasswordButton.addTarget(self, action: #selector(togglePasswordVisibility), for: .touchUpInside)
+
         view.addSubview(passwordForget)
         passwordForget.addAnchorsAndSize(width: 200, height: 12, left: 0, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: paswordTextField)
         
@@ -155,7 +168,16 @@ class LoginViewController: UIViewController {
         
         return formattedDate
     }
-    
+    @objc func togglePasswordVisibility(){
+        
+        let imageName = paswordTextField.isSecureTextEntry ? "eye-open" : "eye-close"
+        let imageEye = UIImage(named: imageName)
+        viewPasswordButton.setImage(imageEye, for: .normal)
+        
+        paswordTextField.isSecureTextEntry.toggle()
+        
+        
+    }
     
 }
 
