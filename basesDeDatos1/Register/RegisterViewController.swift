@@ -19,19 +19,24 @@ class RegisterViewController: UIViewController {
   var viewModel : RegisterViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+      view.backgroundColor = .red
+initUI()
+      
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  var names : UITextField = {
+    var textField = UITextField()
+    textField.placeholder = "Usuario"
+    textField.backgroundColor = .white
+    return textField
+  }()
+  
+  
+  func initUI(){
+    view.addSubview(names)
+    names.addAnchorsAndCenter(centerX: true, centerY: false, width: 500, height: 50, left: nil, top: 90, right: nil, bottom: nil)
+    
+    
+  }
 
 }
