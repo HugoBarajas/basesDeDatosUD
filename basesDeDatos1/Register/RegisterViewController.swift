@@ -39,6 +39,27 @@ initUI()
       textField.backgroundColor = .white
       return textField
     }()
+    
+    var email : UITextField = {
+      var textField = UITextField()
+      textField.placeholder = "Correo electrónico"
+      textField.backgroundColor = .white
+      return textField
+    }()
+    
+    var password : UITextField = {
+      var textField = UITextField()
+      textField.placeholder = "Contraseña"
+      textField.backgroundColor = .white
+      return textField
+    }()
+    
+    var confirmPassword : UITextField = {
+      var textField = UITextField()
+      textField.placeholder = "Confirmar contraseña"
+      textField.backgroundColor = .white
+      return textField
+    }()
   
     var phoneNumberTextField : UITextField = {
         var pNumberTF = UITextField()
