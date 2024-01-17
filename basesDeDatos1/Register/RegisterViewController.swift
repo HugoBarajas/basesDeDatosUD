@@ -47,19 +47,32 @@ initUI()
       return textField
     }()
     
-    var password : UITextField = {
-      var textField = UITextField()
-      textField.placeholder = "Contraseña"
-      textField.backgroundColor = .white
-      return textField
-    }()
-    
-    var confirmPassword : UITextField = {
+    var password: UITextField = {
+     var textField = UITextField()
+     textField.placeholder = "Contraseña"
+     textField.isSecureTextEntry = true
+     textField.backgroundColor = .white
+     return textField
+        }()
+
+    var confirmPassword: UITextField = {
       var textField = UITextField()
       textField.placeholder = "Confirmar contraseña"
+      textField.isSecureTextEntry = true
       textField.backgroundColor = .white
       return textField
-    }()
+        }()
+
+    var showPasswordButton: UIButton = {
+     var button = UIButton()
+     button.setTitle("Mostrar", for: .normal)
+     button.setTitle("Ocultar", for: .selected)
+     button.setTitleColor(.blue, for: .normal)
+     button.addTarget(RegisterViewController.self, action: #selector(showPasswordButtonTapped), for: .touchUpInside)
+     
+     return button
+        }()
+        
   
     var phoneNumberTextField : UITextField = {
         var pNumberTF = UITextField()
@@ -81,7 +94,25 @@ initUI()
     
       view.addSubview(phoneNumberTextField)
       phoneNumberTextField.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: mothersMaidenName)
+      
+      view.addSubview(email)
+      phoneNumberTextField.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: phoneNumberTextField)
+      
+      view.addSubview(password)
+      phoneNumberTextField.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: email)
+      
+      view.addSubview(confirmPassword)
+      phoneNumberTextField.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: password)
+      
+      
     
   }
+    @objc func showPasswordButtonTapped() {
+     password.isSecureTextEntry.toggle()
+     confirmPassword.isSecureTextEntry.toggle()
+     showPasswordButton.isSelected = !showPasswordButton.isSelected
+       }
+    
+    
 
 }
