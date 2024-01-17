@@ -37,6 +37,16 @@ class LoginViewController: UIViewController {
     button.layer.cornerRadius = 10
     return button
   }()
+    
+    
+    var registerlog : UIButton = {
+      var registerButton = UIButton()
+        registerButton.setTitle("Ir a Registro", for: .normal)
+        registerButton.setTitleColor(.black, for: .normal)
+        registerButton.backgroundColor = .white
+        registerButton.layer.cornerRadius = 10
+      return registerButton
+    }()
   
   
   
@@ -57,6 +67,10 @@ class LoginViewController: UIViewController {
     loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
     view.addSubview(loginButton)
     loginButton.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 100, height: 30, left: nil, top: 80, right: nil, bottom: nil,withAnchor: .top, relativeToView: paswordTextField)
+      
+      registerlog.addTarget(self, action: #selector(registerAction), for: .touchUpInside)
+      view.addSubview(registerlog)
+      registerlog.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 100, height: 30, left: nil, top: 30, right: nil, bottom: nil, withAnchor: .top, relativeToView: loginButton)
     
   }
   
@@ -126,7 +140,9 @@ class LoginViewController: UIViewController {
         return formattedDate
     }
   
-
+    @objc func registerAction(){
+        viewModel.goToRegister()
+    }
 }
 
  /*
