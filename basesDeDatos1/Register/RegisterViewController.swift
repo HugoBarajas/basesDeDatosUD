@@ -8,12 +8,7 @@
 import UIKit
 
 
-var phoneNumberTextField : UITextField = {
-    var pNumberTF = UITextField()
-    pNumberTF.placeholder = "Telefono Celular"
-    pNumberTF.keyboardType = .numberPad
-    return pNumberTF
-}()
+
 
 class RegisterViewController: UIViewController {
   var viewModel : RegisterViewModel!
@@ -45,17 +40,26 @@ initUI()
       return textField
     }()
   
-  
+    var phoneNumberTextField : UITextField = {
+        var pNumberTF = UITextField()
+        pNumberTF.placeholder = "Telefono Celular"
+        pNumberTF.keyboardType = .numberPad
+        pNumberTF.backgroundColor = .white
+        return pNumberTF
+    }()
+    
   func initUI(){
     view.addSubview(names)
-    names.addAnchorsAndCenter(centerX: true, centerY: false, width: 500, height: 50, left: nil, top: 90, right: nil, bottom: nil)
+    names.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 90, right: nil, bottom: nil)
       
       view.addSubview(lastName)
-      lastName.addAnchorsAndCenter(centerX: true, centerY: false, width: 500, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: names)
+      lastName.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: names)
       
       view.addSubview(mothersMaidenName)
-      mothersMaidenName.addAnchorsAndCenter(centerX: true, centerY: false, width: 500, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: lastName)
+      mothersMaidenName.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: lastName)
     
+      view.addSubview(phoneNumberTextField)
+      phoneNumberTextField.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: mothersMaidenName)
     
   }
 
