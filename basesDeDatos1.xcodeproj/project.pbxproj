@@ -24,6 +24,9 @@
 		F819F2722B4E37710042E4F8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F2712B4E37710042E4F8 /* HomeViewController.swift */; };
 		F819F2742B4E37820042E4F8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F2732B4E37820042E4F8 /* HomeViewModel.swift */; };
 		F819F2762B4E37910042E4F8 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F2752B4E37910042E4F8 /* HomeCoordinator.swift */; };
+		F8D16CB02B576CA1008359AA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D16CAF2B576CA1008359AA /* RegisterViewController.swift */; };
+		F8D16CB22B576CB3008359AA /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D16CB12B576CB3008359AA /* RegisterViewModel.swift */; };
+		F8D16CB42B576CC7008359AA /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D16CB32B576CC7008359AA /* RegisterCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		F819F2712B4E37710042E4F8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F819F2732B4E37820042E4F8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F819F2752B4E37910042E4F8 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		F8D16CAF2B576CA1008359AA /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F8D16CB12B576CB3008359AA /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		F8D16CB32B576CC7008359AA /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,7 @@
 		F819F2492B4E32E50042E4F8 /* basesDeDatos1 */ = {
 			isa = PBXGroup;
 			children = (
+				F8D16CAE2B576C7E008359AA /* Register */,
 				F819F2702B4E372E0042E4F8 /* Home */,
 				F819F26E2B4E33C70042E4F8 /* AppCoordinator.swift */,
 				F819F26C2B4E33B50042E4F8 /* Utils.swift */,
@@ -122,6 +129,16 @@
 				F819F2752B4E37910042E4F8 /* HomeCoordinator.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		F8D16CAE2B576C7E008359AA /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				F8D16CAF2B576CA1008359AA /* RegisterViewController.swift */,
+				F8D16CB12B576CB3008359AA /* RegisterViewModel.swift */,
+				F8D16CB32B576CC7008359AA /* RegisterCoordinator.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,13 +215,16 @@
 				F819F26F2B4E33C70042E4F8 /* AppCoordinator.swift in Sources */,
 				F819F2622B4E33370042E4F8 /* SplashViewModel.swift in Sources */,
 				F819F24F2B4E32E50042E4F8 /* ViewController.swift in Sources */,
+				F8D16CB22B576CB3008359AA /* RegisterViewModel.swift in Sources */,
 				F819F24B2B4E32E50042E4F8 /* AppDelegate.swift in Sources */,
 				F819F2642B4E33480042E4F8 /* SplashCoordinator.swift in Sources */,
 				F819F2762B4E37910042E4F8 /* HomeCoordinator.swift in Sources */,
+				F8D16CB02B576CA1008359AA /* RegisterViewController.swift in Sources */,
 				F819F2692B4E337E0042E4F8 /* LoginViewController.swift in Sources */,
 				F819F26D2B4E33B50042E4F8 /* Utils.swift in Sources */,
 				F819F24D2B4E32E50042E4F8 /* SceneDelegate.swift in Sources */,
 				F819F2742B4E37820042E4F8 /* HomeViewModel.swift in Sources */,
+				F8D16CB42B576CC7008359AA /* RegisterCoordinator.swift in Sources */,
 				F819F26B2B4E33900042E4F8 /* LoginCoordinator.swift in Sources */,
 				F819F2602B4E33230042E4F8 /* SplashViewController.swift in Sources */,
 				F819F2672B4E336F0042E4F8 /* LoginViewModel.swift in Sources */,
