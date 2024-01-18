@@ -12,8 +12,7 @@ import UIKit
 
 class RegisterViewController: UIViewController {
   var viewModel : RegisterViewModel!
-   
-    
+
   var names : UITextField = {
     var textField = UITextField()
     textField.placeholder = "Usuario"
