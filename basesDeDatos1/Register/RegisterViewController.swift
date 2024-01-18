@@ -12,12 +12,7 @@ import UIKit
 
 class RegisterViewController: UIViewController {
   var viewModel : RegisterViewModel!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      view.backgroundColor = .red
-initUI()
-      
-    }
+   
     
   var names : UITextField = {
     var textField = UITextField()
@@ -89,6 +84,15 @@ initUI()
         return pNumberTF
     }()
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+      view.backgroundColor = .red
+initUI()
+      
+    }
+    
+    
   func initUI(){
     view.addSubview(names)
     names.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 90, right: nil, bottom: nil)
@@ -103,13 +107,13 @@ initUI()
       phoneNumberTextField.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: mothersMaidenName)
       
       view.addSubview(email)
-      phoneNumberTextField.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: phoneNumberTextField)
+      email.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: phoneNumberTextField)
       
       view.addSubview(password)
-      phoneNumberTextField.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: email)
+      password.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: email)
       
       view.addSubview(confirmPassword)
-      phoneNumberTextField.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: password)
+      confirmPassword.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: password)
       
       
     
