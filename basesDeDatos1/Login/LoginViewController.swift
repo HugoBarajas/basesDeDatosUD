@@ -67,6 +67,7 @@ class LoginViewController: UIViewController {
     loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
     view.addSubview(loginButton)
     loginButton.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 100, height: 30, left: nil, top: 80, right: nil, bottom: nil,withAnchor: .top, relativeToView: paswordTextField)
+    
       
       registerlog.addTarget(self, action: #selector(registerAction), for: .touchUpInside)
       view.addSubview(registerlog)
