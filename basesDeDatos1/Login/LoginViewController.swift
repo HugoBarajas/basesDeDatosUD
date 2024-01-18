@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     let password = "123456"
     var userTextField : TextFieldCustom?
     var paswordTextField : TextFieldCustom?
+    var checkMark : CheckMarkCustom?
     
     var login: UILabel = {
         var label = UILabel()
@@ -74,10 +75,14 @@ class LoginViewController: UIViewController {
         view.addSubview(passwordForget)
         passwordForget.addAnchorsAndSize(width: 200, height: 12, left: 0, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: paswordTextField)
         
+        checkMark = CheckMarkCustom(labelCheckMark: "Seguir Conectado", checkVisibility: false)
+        view.addSubview(checkMark!)
+        checkMark!.addAnchors(left: nil, top: 10, right: 20, bottom: nil, withAnchor: .top, relativeToView: passwordForget)
+        
         
         loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
         view.addSubview(loginButton)
-        loginButton.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 100, height: 40, left: nil, top: 80, right: nil, bottom: nil,withAnchor: .top, relativeToView: passwordForget)
+        loginButton.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 100, height: 40, left: nil, top: 80, right: nil, bottom: nil,withAnchor: .top, relativeToView: checkMark)
         
     }
     

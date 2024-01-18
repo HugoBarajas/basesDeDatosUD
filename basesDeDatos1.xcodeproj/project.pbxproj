@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66E73C722B58CCCD00D306C0 /* CheckMarkCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E73C712B58CCCD00D306C0 /* CheckMarkCustom.swift */; };
 		F1CF537C2B58BE50009FC605 /* TextFieldCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CF537B2B58BE50009FC605 /* TextFieldCustom.swift */; };
 		F819F24B2B4E32E50042E4F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F24A2B4E32E50042E4F8 /* AppDelegate.swift */; };
 		F819F24D2B4E32E50042E4F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F24C2B4E32E50042E4F8 /* SceneDelegate.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		66E73C712B58CCCD00D306C0 /* CheckMarkCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkCustom.swift; sourceTree = "<group>"; };
 		F1CF537B2B58BE50009FC605 /* TextFieldCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCustom.swift; sourceTree = "<group>"; };
 		F819F2472B4E32E50042E4F8 /* basesDeDatos1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = basesDeDatos1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F819F24A2B4E32E50042E4F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		66E73C702B58CC8700D306C0 /* CheckMarkCustom */ = {
+			isa = PBXGroup;
+			children = (
+				66E73C712B58CCCD00D306C0 /* CheckMarkCustom.swift */,
+			);
+			path = CheckMarkCustom;
+			sourceTree = "<group>";
+		};
 		F1CF537A2B58BE11009FC605 /* TextFieldCustom */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +98,7 @@
 		F819F2492B4E32E50042E4F8 /* basesDeDatos1 */ = {
 			isa = PBXGroup;
 			children = (
+				66E73C702B58CC8700D306C0 /* CheckMarkCustom */,
 				F1CF537A2B58BE11009FC605 /* TextFieldCustom */,
 				F819F2702B4E372E0042E4F8 /* Home */,
 				F819F26E2B4E33C70042E4F8 /* AppCoordinator.swift */,
@@ -210,6 +221,7 @@
 				F819F2622B4E33370042E4F8 /* SplashViewModel.swift in Sources */,
 				F819F24F2B4E32E50042E4F8 /* ViewController.swift in Sources */,
 				F1CF537C2B58BE50009FC605 /* TextFieldCustom.swift in Sources */,
+				66E73C722B58CCCD00D306C0 /* CheckMarkCustom.swift in Sources */,
 				F819F24B2B4E32E50042E4F8 /* AppDelegate.swift in Sources */,
 				F819F2642B4E33480042E4F8 /* SplashCoordinator.swift in Sources */,
 				F819F2762B4E37910042E4F8 /* HomeCoordinator.swift in Sources */,
