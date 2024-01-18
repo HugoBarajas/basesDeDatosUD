@@ -48,6 +48,16 @@ class HomeViewController: UIViewController {
     }
     
     func initUI(){
+        
+        let navBar = UINavigationBar()
+        let navItem = UINavigationItem()
+        navBar.setItems([navItem], animated: true)
+        let backButton = UIBarButtonItem(title: "Atrás", style: .plain, target: self, action: nil)
+        navItem.leftBarButtonItem = backButton
+        view.addSubview(navBar)
+        navBar.addAnchors(left: 0, top: 60, right: 0, bottom: nil)
+        navBar.barTintColor = .white
+        
         initAnaCard()
         initJanelly()
         initHugoCard()
