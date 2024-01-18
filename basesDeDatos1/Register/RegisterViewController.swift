@@ -72,6 +72,13 @@ initUI()
      
      return button
         }()
+    
+    var eyeImageView: UIImageView = {
+     var imageView = UIImageView(image: UIImage(named: "ojito"))
+     imageView.contentMode = .scaleAspectFit
+     imageView.isHidden = true
+      return imageView
+    }()
         
   
     var phoneNumberTextField : UITextField = {
