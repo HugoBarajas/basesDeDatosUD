@@ -9,7 +9,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    
     var viewModel : LoginViewModel!
     let user = "ingenio@gmail.com"
     let password = "123456"
@@ -46,6 +45,15 @@ class LoginViewController: UIViewController {
         password.titleLabel?.font = UIFont(name: "Arial", size: 12)
         password.setTitleColor(.blue, for: .normal)
         return password
+    }()
+
+    var registerlog : UIButton = {
+      var registerButton = UIButton()
+        registerButton.setTitle("Ir a Registro", for: .normal)
+        registerButton.setTitleColor(.black, for: .normal)
+        registerButton.backgroundColor = .white
+        registerButton.layer.cornerRadius = 10
+      return registerButton
     }()
     
     override func viewDidLoad() {
@@ -84,6 +92,10 @@ class LoginViewController: UIViewController {
         view.addSubview(loginButton)
         loginButton.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 100, height: 40, left: nil, top: 80, right: nil, bottom: nil,withAnchor: .top, relativeToView: checkMark)
         
+        registerlog.addTarget(self, action: #selector(registerAction), for: .touchUpInside)
+      view.addSubview(registerlog)
+      registerlog.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 100, height: 30, left: nil, top: 30, right: nil, bottom: nil, withAnchor: .top, relativeToView: loginButton)
+    
     }
     
     @objc func loginAction(){
@@ -140,6 +152,7 @@ class LoginViewController: UIViewController {
         present(alert, animated:  true)
         
         
+
     }
     
     func savePassword(password: String){
@@ -158,7 +171,10 @@ class LoginViewController: UIViewController {
         
         return formattedDate
     }
-    
+  
+    @objc func registerAction(){
+        viewModel.goToRegister()
+    }
 }
 
 /*

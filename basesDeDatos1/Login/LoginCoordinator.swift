@@ -29,4 +29,11 @@ class LoginCoordinator : Coordinator{
     childCoordinator.append(coordinatorLogin)
     coordinatorLogin.startCoordinator()
   }
+  
+  func goToRegister(){
+    let coordinatorRegister = RegisterCoordinator(navigationController: navigationController)
+    childCoordinator.append(coordinatorRegister)
+    coordinatorRegister.startCoordinator()
+    
+  }
 }
