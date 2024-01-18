@@ -11,8 +11,10 @@ class LoginViewController: UIViewController {
     
     
     var viewModel : LoginViewModel!
-    let user = "Ingenio"
-    let password = "1234"
+    let user = "ingenio@gmail.com"
+    let password = "123456"
+    var userTextField : TextFieldCustom?
+    var paswordTextField : TextFieldCustom?
     
     var login: UILabel = {
         var label = UILabel()
@@ -26,29 +28,6 @@ class LoginViewController: UIViewController {
         var image = UIImageView()
         image.image = UIImage(named: "ingenio")
         return image
-    }()
-    
-    var userTextField : UITextField = {
-        var textField = UITextField()
-        textField.placeholder = "Correo electronico"
-        textField.backgroundColor = .white
-        return textField
-    }()
-    
-    var paswordTextField : UITextField = {
-        var textField = UITextField()
-        textField.placeholder = "Contraseña"
-        textField.backgroundColor = .white
-        textField.isSecureTextEntry = true
-        //propiedad que hace que no se vean los caracteres   que se escriben en el textField
-        return textField
-    }()
-     
-    var viewPasswordButton: UIButton = {
-        var button = UIButton()
-        button.setImage(UIImage(named: "eye-close"), for: .normal)
-        button.tintColor = .black
-        return button
     }()
     
     var loginButton : UIButton = {
@@ -84,16 +63,13 @@ class LoginViewController: UIViewController {
         view.addSubview(login)
         login.addAnchorsAndCenter(centerX: true, centerY: false, width: 200, height: 30, left: nil, top: 50, right: nil, bottom: nil, withAnchor: .top, relativeToView: imageIcon)
         
-        view.addSubview(userTextField)
-        userTextField.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 50, height: 35, left: nil, top: 50, right: nil, bottom: nil, withAnchor: .top, relativeToView: login)
+        userTextField = TextFieldCustom(placeholder: "Correo Electrónico", eyeVisibility: false, typeTextField: .emailAddress)
+        view.addSubview(userTextField!)
+        userTextField!.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 50, height: 35, left: nil, top: 50, right: nil, bottom: nil, withAnchor: .top, relativeToView: login)
         
-        view.addSubview(paswordTextField)
-        paswordTextField.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 50, height: 35, left: nil, top: 35, right: nil, bottom: nil, withAnchor: .top, relativeToView: userTextField)
-        
-        view.addSubview(viewPasswordButton)
-        viewPasswordButton.addAnchorsAndSize(width: 30, height: 30, left: nil, top: nil, right: 20, bottom: nil)
-        viewPasswordButton.addAnchors(left: nil, top: 37.5, right: nil, bottom: nil, withAnchor: .top, relativeToView: userTextField)
-        viewPasswordButton.addTarget(self, action: #selector(togglePasswordVisibility), for: .touchUpInside)
+        paswordTextField = TextFieldCustom(placeholder: "Contraseña", eyeVisibility: true)
+        view.addSubview(paswordTextField!)
+        paswordTextField!.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 50, height: 35, left: nil, top: 35, right: nil, bottom: nil, withAnchor: .top, relativeToView: userTextField)
 
         view.addSubview(passwordForget)
         passwordForget.addAnchorsAndSize(width: 200, height: 12, left: 0, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: paswordTextField)
@@ -107,9 +83,17 @@ class LoginViewController: UIViewController {
     
     @objc func loginAction(){
         print("Login")
-        let usuarioTF = userTextField.text
-        let paswordTF = paswordTextField.text
+        let usuarioTF = userTextField?.textFieldCustom.text?.lowercased()
+        let paswordTF = paswordTextField?.textFieldCustom.text
         let iOSVersion = UIDevice.current.systemVersion
+        
+        if !userTextField!.isValidEmail() || paswordTF!.count < 6 {
+            let chaleAction = UIAlertAction(title: "Intentar de nuevo", style: .destructive){ _ in
+                print("Credenciales incorrectas")
+            }
+            alerta(titulo: "Error en las credenciales", mensaje: "Tus credenciales parecen ser incorrectas", actions: [chaleAction])
+            return
+        }
         
         if usuarioTF == user && paswordTF == password{
             savePassword(password: paswordTF ?? "")
@@ -136,8 +120,8 @@ class LoginViewController: UIViewController {
             
             alerta(titulo: "Error en el inicio de sesion", mensaje: "Tus credenciales parecen ser incorrectas", actions: [chaleAction, resetAction])
             
-            userTextField.text = ""
-            paswordTextField.text = ""
+            userTextField!.textFieldCustom.text = ""
+            paswordTextField!.textFieldCustom.text = ""
             
         }
     }
@@ -152,6 +136,7 @@ class LoginViewController: UIViewController {
         
         
     }
+    
     func savePassword(password: String){
         UserDefaults.standard.setValue(password, forKey: "passwordSaved")
         print("Se almanceno")
@@ -167,16 +152,6 @@ class LoginViewController: UIViewController {
         print("Fecha formateada: \(formattedDate)")
         
         return formattedDate
-    }
-    @objc func togglePasswordVisibility(){
-        
-        let imageName = paswordTextField.isSecureTextEntry ? "eye-open" : "eye-close"
-        let imageEye = UIImage(named: imageName)
-        viewPasswordButton.setImage(imageEye, for: .normal)
-        
-        paswordTextField.isSecureTextEntry.toggle()
-        
-        
     }
     
 }

@@ -57,7 +57,7 @@ class HomeViewController: UIViewController {
     
     func initAnaCard(){
         view.addSubview(ana)
-        ana.addAnchorsAndSize(width: 150, height: 150, left: 15, top: 90, right: nil, bottom: nil)
+        ana.addAnchorsAndSize(width: 150, height: 150, left: 15, top: 120, right: nil, bottom: nil)
     }
     
     func initJanelly() {
