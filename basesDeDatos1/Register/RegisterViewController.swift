@@ -16,7 +16,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     var textField = UITextField()
     textField.placeholder = "Usuario"
     textField.backgroundColor = .white
-      
     return textField
   }()
     
@@ -101,15 +100,16 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             let originalText = "Al registrarte aceptas los Términos y Condiciones y Aviso de Privacidad de Ingenio"
             let atributosTexto = NSMutableAttributedString(string: originalText)
             let terms = (originalText as NSString).range(of: "Términos y Condiciones")
-                atributosTexto.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: terms)
+                atributosTexto.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemBlue, range: terms)
             let estiloSubrayado = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
             atributosTexto.addAttributes(estiloSubrayado, range: terms)
             let advice = (originalText as NSString).range(of: "Aviso de Privacidad")
-                atributosTexto.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: advice)
+                atributosTexto.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemBlue, range: advice)
             atributosTexto.addAttributes(estiloSubrayado, range: advice)
                 termsLb.attributedText = atributosTexto
             termsLb.numberOfLines = 0
             termsLb.textAlignment = .center
+            termsLb.textColor = .white
             return termsLb
         }()
         
@@ -125,13 +125,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
   override func viewDidLoad() {
       super.viewDidLoad()
-    view.backgroundColor = .red
-initUI()
+      view.backgroundColor = .red
+      names.delegate = self
+      lastName.delegate = self
+      mothersMaidenName.delegate = self
+      initUI()
     
   }
   
   
   func initUI(){
+      
+      
     view.addSubview(names)
     names.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 90, right: nil, bottom: nil)
       
@@ -179,6 +184,14 @@ initUI()
        }
     
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+      
+      if textField == names || textField == lastName || textField == mothersMaidenName{
+          let allowedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+          let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
+          let typedCharacterSet = CharacterSet(charactersIn: string)
+          let alphabet = allowedCharacterSet.isSuperset(of: typedCharacterSet)
+          return alphabet
+      }
     
     let maxLength : Int
     
@@ -207,6 +220,8 @@ initUI()
       let emailTest = NSPredicate(format:"SELF MATCHES %@", emailReg)
       return emailTest.evaluate(with: string)
       
+        
+        
     }
     
    
