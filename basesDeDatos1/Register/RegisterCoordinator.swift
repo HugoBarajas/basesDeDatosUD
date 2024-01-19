@@ -23,12 +23,17 @@ class RegisterCoordinator : Coordinator {
    let viewModel = RegisterViewModel()
   viewModel.coordinator = self
     view.viewModel = viewModel
-    navigationController.setViewControllers([view], animated: true)
+    navigationController.pushViewController(view, animated: true)
   
     
   }
   
   
+  func goToHome(){
+    let coordinatorLogin = HomeCoordinator(navigationController: navigationController)
+    childCoordinator.append(coordinatorLogin)
+    coordinatorLogin.startCoordinator()
+  }
   
 
 }

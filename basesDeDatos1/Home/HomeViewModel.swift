@@ -8,4 +8,9 @@
 import Foundation
 class HomeViewModel{
   var coordinator : HomeCoordinator!
+  
+  
+  func goToLogin(){
+    coordinator.goToLogin()
+  }
 }

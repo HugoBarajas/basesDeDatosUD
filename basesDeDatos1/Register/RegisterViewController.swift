@@ -7,9 +7,6 @@
 
 import UIKit
 
-
-
-
 class RegisterViewController: UIViewController, UITextFieldDelegate {
   var viewModel : RegisterViewModel!
 
@@ -143,10 +140,16 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
   override func viewDidLoad() {
       super.viewDidLoad()
-      view.backgroundColor = .systemBlue
-initUI()
-    
+      view.backgroundColor = .gray
+    initUI()
   }
+  
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.navigationController?.navigationBar.isHidden = false
+  }
+  
   
   
   func initUI(){
@@ -269,6 +272,11 @@ initUI()
       present(alert, animated: true)
     } else {
         print("todo cool")
+      let user = User(user: name, name: lastName1, number: number, email: email1)
+      
+      UserDefaults.standard.putUser(user: user)
+      
+      viewModel.goToHome()
     }
     
     if isValidEmail(email: email1!){

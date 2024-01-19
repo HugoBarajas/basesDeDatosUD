@@ -52,27 +52,44 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         initUI()
+      showUser()
     }
+  
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    navigationController?.navigationBar.isHidden = false
+  
+    let closeButton = UIBarButtonItem(image: UIImage(named: "cerrarSesion"), style: .plain, target: self, action: #selector(logout))
+  
+    navigationItem.hidesBackButton = true
+    navigationItem.rightBarButtonItem = closeButton
+  }
     
     func initUI(){
-        
-        let navBar = UINavigationBar()
-        let navItem = UINavigationItem()
-        navBar.setItems([navItem], animated: true)
-        let closeButton = UIBarButtonItem(image: UIImage(named: "cerrarSesion"), style: .plain, target: self, action: nil)
-        let backButton = UIBarButtonItem(title: "Atrás", style: .plain, target: self, action: nil)
-        navItem.rightBarButtonItem = closeButton
-        navItem.leftBarButtonItem = backButton
-        view.addSubview(navBar)
-        navBar.addAnchors(left: 0, top: 60, right: 0, bottom: nil)
-        navBar.barTintColor = .white
-        
+      
         initAnaCard()
         initJanelly()
         initHugoCard()
         initVictorHugo()
         initVicCard()
     }
+  
+  
+  func showUser(){
+    if let user = UserDefaults.standard.getUser(){
+      
+      print(user)
+    }
+  }
+  
+  
+  @objc func logout(){
+    print("Log out")
+    UserDefaults.standard.deleteUser()
+    viewModel.goToLogin()
+  }
     
     func initAnaCard(){
         view.addSubview(ana)

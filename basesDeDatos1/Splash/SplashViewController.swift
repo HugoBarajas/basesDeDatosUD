@@ -36,8 +36,7 @@ class SplashViewController: UIViewController {
   }
   
   func setUpTimer(){
-    let isLogged = UserDefaults.standard.bool(forKey: "isLogged")
-    if isLogged{
+    if let user = UserDefaults.standard.getUser(){
       Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(goToHome), userInfo: nil, repeats: false)
     }else{
       Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(goToLogin), userInfo: nil, repeats: false)

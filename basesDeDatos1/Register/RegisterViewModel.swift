@@ -11,4 +11,8 @@ class RegisterViewModel {
   var coordinator : RegisterCoordinator!
   
   
+  func goToHome(){
+    coordinator.goToHome()
+  }
+  
 }

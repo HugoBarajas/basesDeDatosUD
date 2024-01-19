@@ -113,9 +113,6 @@ class LoginViewController: UIViewController {
             return
         }
         
-        if checkMark!.isCheckMark {
-            
-        }
         
         if usuarioTF == user && paswordTF == password{
             savePassword(password: paswordTF ?? "")
@@ -128,6 +125,12 @@ class LoginViewController: UIViewController {
             UserDefaults.standard.setValue(getDateNow(), forKey: "dateLoggged")
             
             print("Ir al home")
+          if checkMark!.isCheckMark {
+           print("Guardar usuario")
+            let user = User(user: usuarioTF)
+            UserDefaults.standard.putUser(user: user)
+          }
+          
             viewModel.goToHome()
             
         }else{
