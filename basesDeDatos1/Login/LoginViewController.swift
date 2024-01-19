@@ -84,8 +84,9 @@ class LoginViewController: UIViewController {
         passwordForget.addAnchorsAndSize(width: 200, height: 12, left: 0, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: paswordTextField)
         
         checkMark = CheckMarkCustom(labelCheckMark: "Seguir Conectado", checkVisibility: false)
+        checkMark?.isUserInteractionEnabled = true
         view.addSubview(checkMark!)
-        checkMark!.addAnchors(left: nil, top: 10, right: 20, bottom: nil, withAnchor: .top, relativeToView: passwordForget)
+        checkMark!.addAnchorsAndSize(width: nil, height: nil, left: nil, top: 10, right: 20, bottom: nil, withAnchor: .top, relativeToView: passwordForget)
         
         
         loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
@@ -93,9 +94,9 @@ class LoginViewController: UIViewController {
         loginButton.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 100, height: 40, left: nil, top: 80, right: nil, bottom: nil,withAnchor: .top, relativeToView: checkMark)
         
         registerlog.addTarget(self, action: #selector(registerAction), for: .touchUpInside)
-      view.addSubview(registerlog)
-      registerlog.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 100, height: 30, left: nil, top: 30, right: nil, bottom: nil, withAnchor: .top, relativeToView: loginButton)
-    
+        view.addSubview(registerlog)
+        registerlog.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 100, height: 30, left: nil, top: 30, right: nil, bottom: nil, withAnchor: .top, relativeToView: loginButton)
+        
     }
     
     @objc func loginAction(){
