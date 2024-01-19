@@ -67,11 +67,29 @@ class RegisterViewController: UIViewController {
      return button
         }()
     
-    var eyeImageView: UIImageView = {
+    /*var eyeImageView: UIImageView = {
      var imageView = UIImageView(image: UIImage(named: "ojito"))
      imageView.contentMode = .scaleAspectFit
-     imageView.isHidden = true
-      return imageView
+     imageView.isHidden = false
+     imageView.tintColor = .black
+      return imageView */
+    
+    var eyeButton: UIButton = {
+        var button = UIButton()
+        button.setImage(UIImage(named: "ojito"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(showPasswordButtonTapped), for: .touchUpInside)
+        return button
+        
+    }()
+        
+        var eyeButton2: UIButton = {
+            var button = UIButton()
+            button.setImage(UIImage(named: "ojito"), for: .normal)
+            button.imageView?.contentMode = .scaleAspectFit
+            button.addTarget(self, action: #selector(showPasswordButtonTappedConfirmPassword), for: .touchUpInside)
+            return button
+       
     }()
         
   
@@ -134,12 +152,27 @@ initUI()
 
       view.addSubview(email)
       email.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: phoneNumberTextField)
-      
+    
       view.addSubview(password)
-      password.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: email)
-      
+      password.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: email)
+
       view.addSubview(confirmPassword)
-      confirmPassword.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: password)
+      confirmPassword.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: password)
+      
+
+      view.addSubview(eyeButton)
+         eyeButton.addAnchorsAndCenter(centerX: false, centerY: false, width: 30, height: 30, left: nil, top: 15, right: 40, bottom: nil, withAnchor: .top, relativeToView: email)
+
+         view.addSubview(showPasswordButton)
+         showPasswordButton.addAnchorsAndCenter(centerX: true, centerY: false, width: 80, height: 30, left: nil, top: 10, right: nil, bottom: nil, withAnchor: .left, relativeToView: confirmPassword)
+         
+   
+      confirmPassword.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: password)
+      view.addSubview(eyeButton2)
+      
+      
+      eyeButton2.addAnchorsAndCenter(centerX: false, centerY: false, width: 30, height: 30, left: nil, top: 15, right: 40, bottom: nil, withAnchor: .top, relativeToView: password)
+      
       
    
      /*  view.addSubview(termisLabel)
@@ -152,10 +185,18 @@ initUI()
   }
     @objc func showPasswordButtonTapped() {
      password.isSecureTextEntry.toggle()
-     confirmPassword.isSecureTextEntry.toggle()
      showPasswordButton.isSelected = !showPasswordButton.isSelected
-       }
+        eyeButton.setImage(UIImage(named: showPasswordButton.isSelected ? "ojitocerrado" : "ojitoabierto"), for: .normal)
+        }
+       
+    @objc func showPasswordButtonTappedConfirmPassword() {
+        confirmPassword.isSecureTextEntry.toggle()
+        showPasswordButton.isSelected = !showPasswordButton.isSelected
+        eyeButton2.setImage(UIImage(named: showPasswordButton.isSelected ? "ojitocerrado" : "ojitoabierto"), for: .normal)
+    }
     
+   
+
     
 
 }
