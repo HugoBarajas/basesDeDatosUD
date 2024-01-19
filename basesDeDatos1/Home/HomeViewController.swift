@@ -11,6 +11,13 @@ class HomeViewController: UIViewController {
     
     var viewModel : HomeViewModel!
     
+    
+    var cerrarSesion: UIButton = {
+        var button = UIButton()
+        button.setImage(UIImage(named: "cerrarSesion"), for: .normal)
+        return button
+    }()
+    
     var ana : UIImageView = {
         var imageAna = UIImageView()
         imageAna.image = UIImage(named: "Ana")
@@ -52,7 +59,9 @@ class HomeViewController: UIViewController {
         let navBar = UINavigationBar()
         let navItem = UINavigationItem()
         navBar.setItems([navItem], animated: true)
+        let closeButton = UIBarButtonItem(image: UIImage(named: "cerrarSesion"), style: .plain, target: self, action: nil)
         let backButton = UIBarButtonItem(title: "Atrás", style: .plain, target: self, action: nil)
+        navItem.rightBarButtonItem = closeButton
         navItem.leftBarButtonItem = backButton
         view.addSubview(navBar)
         navBar.addAnchors(left: 0, top: 60, right: 0, bottom: nil)
