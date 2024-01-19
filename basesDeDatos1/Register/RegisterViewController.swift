@@ -10,11 +10,12 @@ import UIKit
 
 
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController{
   var viewModel : RegisterViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
       view.backgroundColor = .red
+       
 initUI()
       
     }
@@ -23,6 +24,7 @@ initUI()
     var textField = UITextField()
     textField.placeholder = "Usuario"
     textField.backgroundColor = .white
+      
     return textField
   }()
     
@@ -88,12 +90,14 @@ initUI()
       view.addSubview(phoneNumberTextField)
       phoneNumberTextField.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: mothersMaidenName)
       
-     /*  view.addSubview(termisLabel)
+      /* view.addSubview(termisLabel)
             termisLabel.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 100, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: promotions)
             
             view.addSubview(createAccountButton)
             createAccountButton.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: termisLabel)*/
     
   }
+    
+    
 
 }
