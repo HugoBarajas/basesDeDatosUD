@@ -204,7 +204,8 @@ initUI()
    
     view.addSubview(termisLabel)
             termisLabel.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 100, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: passwordRequeriments)
-            
+       
+    createAccountButton.addTarget(self, action: #selector(textFieldValidation), for: .touchUpInside)
       view.addSubview(createAccountButton)
             createAccountButton.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: termisLabel)
 
@@ -246,18 +247,51 @@ initUI()
       
     }
     
-    if textField == email{
-     
-      let emailReg = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-      let emailTest = NSPredicate(format:"SELF MATCHES %@", emailReg)
-      return emailTest.evaluate(with: string)
-      
-    }
-    
-   
-    
+
     return true
   }
 
+  
+  @objc func textFieldValidation(){
+    let email1 = email.text
+    let name = names.text
+    let lastName1 = lastName.text
+    let lastName2 = mothersMaidenName.text
+    let number = phoneNumberTextField.text
+    let password1 = password.text
+    let pasword2 = confirmPassword.text
+    
+    
+    if (email1?.isEmpty ?? true) || (name?.isEmpty ?? true) || (lastName1?.isEmpty ?? true) || (lastName2?.isEmpty ?? true) || (number?.isEmpty ?? true) || (password1?.isEmpty ?? true) || (pasword2?.isEmpty ?? true) {
+      
+      let alert = UIAlertController(title: "Alguno de tus campos está vacío", message: "", preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "Ok", style: .default))
+      present(alert, animated: true)
+    } else {
+        print("todo cool")
+    }
+    
+    if isValidEmail(email: email1!){
+
+    }else{
+      var alert = UIAlertController(title: "tu correo es incorrecto", message: "", preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "Ok", style: .default))
+      present(alert, animated: true)
+    }
+    
+    
+    
+    
+  }
+  
+  func isValidEmail(email: String) -> Bool {
+          let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+          let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+          return emailPredicate.evaluate(with: email)
+      }
+    
+
 
 }
+
+
