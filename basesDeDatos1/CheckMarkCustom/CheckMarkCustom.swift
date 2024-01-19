@@ -29,7 +29,6 @@ class CheckMarkCustom: UIView {
     init(labelCheckMark: String, checkVisibility: Bool){
         self.labelCheckMark = labelCheckMark
         self.checkVisibility = checkVisibility
-        nameCheck.text = labelCheckMark
         super.init(frame: .zero)
         initUI()
     }
@@ -37,23 +36,17 @@ class CheckMarkCustom: UIView {
     func initUI(){
         
         self.addSubview(nameCheck)
-        nameCheck.addAnchors(left: 0, top: 0, right: 0, bottom: nil)
+        nameCheck.addAnchors(left: 30, top: 0, right: 0, bottom: nil)
         
+        nameCheck.text = labelCheckMark
         checkMarkButton.addTarget(self, action: #selector(checkMark), for: .touchUpInside)
         self.addSubview(checkMarkButton)
         checkMarkButton.addAnchorsAndSize(width: 20, height: 20, left: nil, top: 0, right: 5, bottom: nil, withAnchor: .right, relativeToView: nameCheck)
     }
     
     @objc func checkMark(){
-         let imageCheckMark = UIImage(named: "checkMark")
         isCheckMark.toggle()
-        print("CheckMark is \(isCheckMark)")
-        if isCheckMark {
-            checkMarkButton.setImage(imageCheckMark, for: .normal)
-        }
-        else{
-            checkMarkButton.setImage(nil, for: .normal)
-        }
+        isCheckMark ? checkMarkButton.setImage(UIImage(named: "checkMark"), for: .normal) : checkMarkButton.setImage(nil, for: .normal)
     }
     
     required init?(coder: NSCoder) {

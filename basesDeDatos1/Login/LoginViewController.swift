@@ -86,7 +86,7 @@ class LoginViewController: UIViewController {
         checkMark = CheckMarkCustom(labelCheckMark: "Seguir Conectado", checkVisibility: false)
         checkMark?.isUserInteractionEnabled = true
         view.addSubview(checkMark!)
-        checkMark!.addAnchorsAndSize(width: nil, height: nil, left: nil, top: 10, right: 20, bottom: nil, withAnchor: .top, relativeToView: passwordForget)
+        checkMark!.addAnchorsAndSize(width: 200, height: 20, left: nil, top: 10, right: 0, bottom: nil, withAnchor: .top, relativeToView: passwordForget)
         
         
         loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
@@ -111,6 +111,10 @@ class LoginViewController: UIViewController {
             }
             alerta(titulo: "Error en las credenciales", mensaje: "Tus credenciales parecen ser incorrectas", actions: [chaleAction])
             return
+        }
+        
+        if checkMark!.isCheckMark {
+            
         }
         
         if usuarioTF == user && paswordTF == password{
