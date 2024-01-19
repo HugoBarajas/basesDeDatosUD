@@ -168,7 +168,7 @@ initUI()
       email.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: phoneNumberTextField)
     
       view.addSubview(password)
-<<<<<<< HEAD
+
       password.delegate = self
       password.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: email)
       
@@ -179,7 +179,7 @@ initUI()
     
     view.addSubview(passwordRequeriments)
     passwordRequeriments.addAnchorsAndSize(width: width - 10, height: 100, left: nil, top: 15, right: nil, bottom: nil, withAnchor: .top, relativeToView: confirmPassword)
-=======
+
       password.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: email)
 
       view.addSubview(confirmPassword)
@@ -199,7 +199,7 @@ initUI()
       
       eyeButton2.addAnchorsAndCenter(centerX: false, centerY: false, width: 30, height: 30, left: nil, top: 15, right: 40, bottom: nil, withAnchor: .top, relativeToView: password)
       
->>>>>>> Andy
+
       
    
     view.addSubview(termisLabel)
@@ -222,7 +222,7 @@ initUI()
         eyeButton2.setImage(UIImage(named: showPasswordButton.isSelected ? "ojitocerrado" : "ojitoabierto"), for: .normal)
     }
     
-<<<<<<< HEAD
+
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
     
     let maxLength : Int
@@ -258,10 +258,6 @@ initUI()
     
     return true
   }
-=======
-   
 
->>>>>>> Andy
-    
 
 }
