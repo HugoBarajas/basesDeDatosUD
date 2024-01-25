@@ -14,5 +14,9 @@ class LoginViewModel{
   func goToHome(){
     coordinator.goToHome()
   }
+  
+  func goToRegister(){
+    coordinator.goToRegister()
+  }
 
 }

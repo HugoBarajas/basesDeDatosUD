@@ -1,15 +1,17 @@
 //
-//  LoginCoordinator.swift
+//  RegisterCoordinator.swift
 //  basesDeDatos1
 //
-//  Created by Victor Hugo Barajas Santibañez on 09/01/24.
+//  Created by Victor Hugo Barajas Santibañez on 16/01/24.
 //
 
 import Foundation
 import UIKit
 
-class LoginCoordinator : Coordinator{
+
+class RegisterCoordinator : Coordinator {
   var childCoordinator: [Coordinator] = []
+  
   var navigationController : UINavigationController
   
   init(navigationController : UINavigationController){
@@ -17,12 +19,15 @@ class LoginCoordinator : Coordinator{
   }
   
   func startCoordinator() {
-    let view = LoginViewController()
-    let viewModel = LoginViewModel()
-    viewModel.coordinator = self
+   let view = RegisterViewController()
+   let viewModel = RegisterViewModel()
+  viewModel.coordinator = self
     view.viewModel = viewModel
-    navigationController.setViewControllers([view], animated: true)
+    navigationController.pushViewController(view, animated: true)
+  
+    
   }
+  
   
   func goToHome(){
     let coordinatorLogin = HomeCoordinator(navigationController: navigationController)
@@ -30,10 +35,5 @@ class LoginCoordinator : Coordinator{
     coordinatorLogin.startCoordinator()
   }
   
-  func goToRegister(){
-    let coordinatorRegister = RegisterCoordinator(navigationController: navigationController)
-    childCoordinator.append(coordinatorRegister)
-    coordinatorRegister.startCoordinator()
-    
-  }
+
 }
