@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class RegisterViewController: UIViewController, UITextFieldDelegate {
   var viewModel : RegisterViewModel!
 
@@ -67,11 +65,29 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
      return button
         }()
     
-    var eyeImageView: UIImageView = {
+    /*var eyeImageView: UIImageView = {
      var imageView = UIImageView(image: UIImage(named: "ojito"))
      imageView.contentMode = .scaleAspectFit
-     imageView.isHidden = true
-      return imageView
+     imageView.isHidden = false
+     imageView.tintColor = .black
+      return imageView */
+    
+    var eyeButton: UIButton = {
+        var button = UIButton()
+        button.setImage(UIImage(named: "ojito"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(showPasswordButtonTapped), for: .touchUpInside)
+        return button
+        
+    }()
+        
+        var eyeButton2: UIButton = {
+            var button = UIButton()
+            button.setImage(UIImage(named: "ojito"), for: .normal)
+            button.imageView?.contentMode = .scaleAspectFit
+            button.addTarget(self, action: #selector(showPasswordButtonTappedConfirmPassword), for: .touchUpInside)
+            return button
+       
     }()
         
   
@@ -130,8 +146,16 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
       lastName.delegate = self
       mothersMaidenName.delegate = self
       initUI()
-    
+      view.backgroundColor = .gray
+    initUI()
   }
+  
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.navigationController?.navigationBar.isHidden = false
+  }
+  
   
   
   func initUI(){
@@ -153,9 +177,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
       view.addSubview(email)
     email.delegate = self
       email.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: phoneNumberTextField)
-      
-
       view.addSubview(password)
+
       password.delegate = self
       password.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: email)
       
@@ -166,12 +189,33 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     view.addSubview(passwordRequeriments)
     passwordRequeriments.addAnchorsAndSize(width: width - 10, height: 100, left: nil, top: 15, right: nil, bottom: nil, withAnchor: .top, relativeToView: confirmPassword)
+
+      password.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: email)
+
+      view.addSubview(confirmPassword)
+      confirmPassword.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: password)
+      
+
+      view.addSubview(eyeButton)
+         eyeButton.addAnchorsAndCenter(centerX: false, centerY: false, width: 30, height: 30, left: nil, top: 15, right: 40, bottom: nil, withAnchor: .top, relativeToView: email)
+
+         view.addSubview(showPasswordButton)
+         showPasswordButton.addAnchorsAndCenter(centerX: true, centerY: false, width: 80, height: 30, left: nil, top: 10, right: nil, bottom: nil, withAnchor: .left, relativeToView: confirmPassword)
+         
+   
+      confirmPassword.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: password)
+      view.addSubview(eyeButton2)
+      
+      
+      eyeButton2.addAnchorsAndCenter(centerX: false, centerY: false, width: 30, height: 30, left: nil, top: 15, right: 40, bottom: nil, withAnchor: .top, relativeToView: password)
+      
+
       
    
     view.addSubview(termisLabel)
             termisLabel.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 100, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: passwordRequeriments)
-
-            
+       
+    createAccountButton.addTarget(self, action: #selector(textFieldValidation), for: .touchUpInside)
       view.addSubview(createAccountButton)
             createAccountButton.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: termisLabel)
 
@@ -179,10 +223,17 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
   }
     @objc func showPasswordButtonTapped() {
      password.isSecureTextEntry.toggle()
-     confirmPassword.isSecureTextEntry.toggle()
      showPasswordButton.isSelected = !showPasswordButton.isSelected
-       }
+        eyeButton.setImage(UIImage(named: showPasswordButton.isSelected ? "ojitocerrado" : "ojitoabierto"), for: .normal)
+        }
+       
+    @objc func showPasswordButtonTappedConfirmPassword() {
+        confirmPassword.isSecureTextEntry.toggle()
+        showPasswordButton.isSelected = !showPasswordButton.isSelected
+        eyeButton2.setImage(UIImage(named: showPasswordButton.isSelected ? "ojitocerrado" : "ojitoabierto"), for: .normal)
+    }
     
+
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
       
       if textField == names || textField == lastName || textField == mothersMaidenName{
@@ -229,4 +280,50 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     return true
   }
 
+  
+  @objc func textFieldValidation(){
+    let email1 = email.text
+    let name = names.text
+    let lastName1 = lastName.text
+    let lastName2 = mothersMaidenName.text
+    let number = phoneNumberTextField.text
+    let password1 = password.text
+    let pasword2 = confirmPassword.text
+    
+    
+    if (email1?.isEmpty ?? true) || (name?.isEmpty ?? true) || (lastName1?.isEmpty ?? true) || (lastName2?.isEmpty ?? true) || (number?.isEmpty ?? true) || (password1?.isEmpty ?? true) || (pasword2?.isEmpty ?? true) {
+      
+      let alert = UIAlertController(title: "Alguno de tus campos está vacío", message: "", preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "Ok", style: .default))
+      present(alert, animated: true)
+    } else {
+        print("todo cool")
+      let user = User(user: name, name: lastName1, number: number, email: email1)
+      
+      UserDefaults.standard.putUser(user: user)
+      
+      viewModel.goToHome()
+    }
+    
+    if isValidEmail(email: email1!){
+
+    }else{
+      var alert = UIAlertController(title: "tu correo es incorrecto", message: "", preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "Ok", style: .default))
+      present(alert, animated: true)
+    }
+    
+    
+    
+    
+  }
+  
+  func isValidEmail(email: String) -> Bool {
+          let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+          let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+          return emailPredicate.evaluate(with: email)
+      }
+
+
 }
+
