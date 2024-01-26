@@ -10,31 +10,29 @@ import Foundation
 
 
 extension UserDefaults{
-  func putUser(user : User){
+  func putData<T:Encodable>(object : T, key : String){
     let jsonEncoder = JSONEncoder()
-    if let userEncode = try? jsonEncoder.encode(user){
-      self.set(userEncode, forKey: "user")
+    if let userEncode = try? jsonEncoder.encode(object){
+      self.set(userEncode, forKey: key)
     }
   }
   
-  
-  func getUser() -> User?{
-    if let data = self.data(forKey: "user"){
+  func getData<T : Decodable>(type : T.Type, key : String) -> T?{
+    if let data = self.data(forKey: key){
       let jsonDecoder = JSONDecoder()
-      if let user = try? jsonDecoder.decode(User.self, from: data){
+      if let user = try? jsonDecoder.decode(type, from: data){
         return user
       }else{
-        print("Error decoding user")
+        print("Error decoding data")
         return nil
       }
     }else{
-      print("Error getting user")
+      print("Error getting data")
       return nil
     }
   }
   
-  
-  func deleteUser(){
-    self.removeObject(forKey: "user")
+  func deleteData(key : String){
+    self.removeObject(forKey: key)
   }
 }
