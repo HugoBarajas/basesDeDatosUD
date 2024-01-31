@@ -7,10 +7,29 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController, UITextFieldDelegate {
+class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        opciones.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            return opciones[row]
+        }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            let opcionSeleccionada = opciones[row]
+            print("Seleccionaste: \(opcionSeleccionada)")
+        }
+    
+    
   var viewModel : RegisterViewModel!
   
   let dataBase = DataBase.shared
+  let opciones = ["Selecciona tu genero","Hombre", "Mujer", "No binario"]
 
   var names : UITextField = {
     var textField = UITextField()
@@ -112,6 +131,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     return textView
   }()
   
+    var pickerGender : UIPickerView = {
+        var picker = UIPickerView()
+        picker.backgroundColor = .white
+        return picker
+    }()
+    
     
     var termisLabel : UILabel = {
             var termsLb = UILabel()
@@ -155,6 +180,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
   
   
   func initUI(){
+      pickerGender.delegate = self
+      pickerGender.dataSource = self
+      
     view.addSubview(names)
     names.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 90, right: nil, bottom: nil)
       
@@ -190,6 +218,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
       view.addSubview(confirmPassword)
       confirmPassword.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: password)
       
+      view.addSubview(pickerGender)
+      pickerGender.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: confirmPassword)
+      
 
       view.addSubview(eyeButton)
          eyeButton.addAnchorsAndCenter(centerX: false, centerY: false, width: 30, height: 30, left: nil, top: 15, right: 40, bottom: nil, withAnchor: .top, relativeToView: email)
@@ -199,16 +230,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
          
    
       confirmPassword.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: password)
+      
       view.addSubview(eyeButton2)
-      
-      
       eyeButton2.addAnchorsAndCenter(centerX: false, centerY: false, width: 30, height: 30, left: nil, top: 15, right: 40, bottom: nil, withAnchor: .top, relativeToView: password)
-      
-
-      
    
     view.addSubview(termisLabel)
-            termisLabel.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 100, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: passwordRequeriments)
+            termisLabel.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 100, left: nil, top: 10, right: nil, bottom: nil,withAnchor: .top, relativeToView: pickerGender)
        
     createAccountButton.addTarget(self, action: #selector(textFieldValidation), for: .touchUpInside)
       view.addSubview(createAccountButton)
