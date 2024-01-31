@@ -226,7 +226,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
       confirmPassword.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: password)
       
       view.addSubview(pickerGender)
-      pickerGender.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: confirmPassword)
+      pickerGender.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 100, right: nil, bottom: nil, withAnchor: .top, relativeToView: confirmPassword)
       
 
       view.addSubview(eyeButton)
