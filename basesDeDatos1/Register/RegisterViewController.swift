@@ -21,10 +21,17 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             return opciones[row]
         }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            let opcionSeleccionada = opciones[row]
-            print("Seleccionaste: \(opcionSeleccionada)")
+        let opcionSeleccionada = opciones[row]
+        print("Seleccionaste: \(opcionSeleccionada)")
+        
+        if opcionSeleccionada == "Selecciona tu genero"{
+            print("seleccionaste genero")
+            
+            let alert = UIAlertController(title: "Selecciona tu genero", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(alert, animated: true)
         }
-    
+    }
     
   var viewModel : RegisterViewModel!
   
@@ -292,6 +299,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     let number = phoneNumberTextField.text
     let password1 = password.text
     let pasword2 = confirmPassword.text
+    let gender = pickerGender.textInputContextIdentifier
     
     
     if (email1?.isEmpty ?? true) || (name?.isEmpty ?? true) || (lastName1?.isEmpty ?? true) || (lastName2?.isEmpty ?? true) || (number?.isEmpty ?? true) || (password1?.isEmpty ?? true) || (pasword2?.isEmpty ?? true) {
@@ -337,8 +345,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
           return emailPredicate.evaluate(with: email)
       }
     
+  
+  }
+    
+    
+    
 
-
-}
 
 
