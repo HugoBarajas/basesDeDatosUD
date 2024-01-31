@@ -11,6 +11,7 @@ class LoginViewController: UIViewController {
   
   let dataBase = DataBase.shared
   var viewModel : LoginViewModel!
+
   var userTextField : TextFieldCustom?
   var paswordTextField : TextFieldCustom?
   var checkMark : CheckMarkCustom?
@@ -21,6 +22,7 @@ class LoginViewController: UIViewController {
     label.font = UIFont(name: "Optima", size: 30)
     label.font = UIFont.boldSystemFont(ofSize: 30)
     return label
+
   }()
   
   var imageIcon : UIImageView = {
