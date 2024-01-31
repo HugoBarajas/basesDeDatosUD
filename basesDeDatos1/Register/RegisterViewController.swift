@@ -9,6 +9,8 @@ import UIKit
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
   var viewModel : RegisterViewModel!
+  
+  let dataBase = DataBase.shared
 
   var names : UITextField = {
     var textField = UITextField()
@@ -297,12 +299,22 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
       alert.addAction(UIAlertAction(title: "Ok", style: .default))
       present(alert, animated: true)
     } else {
-        print("todo cool")
-      let user = User(user: name, name: lastName1, number: number, email: email1)
+        print("todo cool aun")
       
-      UserDefaults.standard.putUser(user: user)
-      
-      viewModel.goToHome()
+      if let _ = dataBase.getUserByEmail(email: email1 ?? ""){
+        let alert = UIAlertController(title: "Error creando usuario", message: "Email ya registrado, usa otro porfi", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        present(alert, animated: true)
+      }else{
+        
+        let dataBaseUsers = dataBase.getUsers()
+        let user = User(id: dataBaseUsers.count + 1, user: name, name: lastName1, number: number, email: email1,password: password1, isActive: true)
+        
+        dataBase.registerUser(user: user)
+        dataBase.userLogged(user: user)
+        
+        viewModel.goToHome()
+      }
     }
     
     if isValidEmail(email: email1!){
