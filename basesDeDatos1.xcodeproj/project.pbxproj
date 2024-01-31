@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66E73C722B58CCCD00D306C0 /* CheckMarkCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E73C712B58CCCD00D306C0 /* CheckMarkCustom.swift */; };
+		BF801EDF2B5A1B710046DF6E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF801EDE2B5A1B710046DF6E /* User.swift */; };
+		BF801EE22B5A1E1F0046DF6E /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF801EE12B5A1E1F0046DF6E /* DataBase.swift */; };
+		BFA437FF2B689D5B00E84408 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA437FE2B689D5B00E84408 /* UserDefaultsKeys.swift */; };
+		F1CF537C2B58BE50009FC605 /* TextFieldCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CF537B2B58BE50009FC605 /* TextFieldCustom.swift */; };
 		F819F24B2B4E32E50042E4F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F24A2B4E32E50042E4F8 /* AppDelegate.swift */; };
 		F819F24D2B4E32E50042E4F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F24C2B4E32E50042E4F8 /* SceneDelegate.swift */; };
 		F819F24F2B4E32E50042E4F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F24E2B4E32E50042E4F8 /* ViewController.swift */; };
@@ -24,9 +29,17 @@
 		F819F2722B4E37710042E4F8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F2712B4E37710042E4F8 /* HomeViewController.swift */; };
 		F819F2742B4E37820042E4F8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F2732B4E37820042E4F8 /* HomeViewModel.swift */; };
 		F819F2762B4E37910042E4F8 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F2752B4E37910042E4F8 /* HomeCoordinator.swift */; };
+		F8D16CB02B576CA1008359AA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D16CAF2B576CA1008359AA /* RegisterViewController.swift */; };
+		F8D16CB22B576CB3008359AA /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D16CB12B576CB3008359AA /* RegisterViewModel.swift */; };
+		F8D16CB42B576CC7008359AA /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D16CB32B576CC7008359AA /* RegisterCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		66E73C712B58CCCD00D306C0 /* CheckMarkCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkCustom.swift; sourceTree = "<group>"; };
+		BF801EDE2B5A1B710046DF6E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BF801EE12B5A1E1F0046DF6E /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		BFA437FE2B689D5B00E84408 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		F1CF537B2B58BE50009FC605 /* TextFieldCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCustom.swift; sourceTree = "<group>"; };
 		F819F2472B4E32E50042E4F8 /* basesDeDatos1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = basesDeDatos1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F819F24A2B4E32E50042E4F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F819F24C2B4E32E50042E4F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +59,9 @@
 		F819F2712B4E37710042E4F8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F819F2732B4E37820042E4F8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F819F2752B4E37910042E4F8 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		F8D16CAF2B576CA1008359AA /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F8D16CB12B576CB3008359AA /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		F8D16CB32B576CC7008359AA /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +75,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		66E73C702B58CC8700D306C0 /* CheckMarkCustom */ = {
+			isa = PBXGroup;
+			children = (
+				66E73C712B58CCCD00D306C0 /* CheckMarkCustom.swift */,
+			);
+			path = CheckMarkCustom;
+			sourceTree = "<group>";
+		};
+		BF801EDD2B5A1B5A0046DF6E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BF801EDE2B5A1B710046DF6E /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BF801EE02B5A1E110046DF6E /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				BF801EE12B5A1E1F0046DF6E /* DataBase.swift */,
+				BFA437FE2B689D5B00E84408 /* UserDefaultsKeys.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		F1CF537A2B58BE11009FC605 /* TextFieldCustom */ = {
+			isa = PBXGroup;
+			children = (
+				F1CF537B2B58BE50009FC605 /* TextFieldCustom.swift */,
+			);
+			path = TextFieldCustom;
+			sourceTree = "<group>";
+		};
 		F819F23E2B4E32E50042E4F8 = {
 			isa = PBXGroup;
 			children = (
@@ -78,9 +127,14 @@
 		F819F2492B4E32E50042E4F8 /* basesDeDatos1 */ = {
 			isa = PBXGroup;
 			children = (
-				F819F2702B4E372E0042E4F8 /* Home */,
 				F819F26E2B4E33C70042E4F8 /* AppCoordinator.swift */,
 				F819F26C2B4E33B50042E4F8 /* Utils.swift */,
+				BF801EE02B5A1E110046DF6E /* DataBase */,
+				BF801EDD2B5A1B5A0046DF6E /* Models */,
+				66E73C702B58CC8700D306C0 /* CheckMarkCustom */,
+				F1CF537A2B58BE11009FC605 /* TextFieldCustom */,
+				F8D16CAE2B576C7E008359AA /* Register */,
+				F819F2702B4E372E0042E4F8 /* Home */,
 				F819F2652B4E334E0042E4F8 /* Login */,
 				F819F25E2B4E33030042E4F8 /* Splash */,
 				F819F24A2B4E32E50042E4F8 /* AppDelegate.swift */,
@@ -122,6 +176,16 @@
 				F819F2752B4E37910042E4F8 /* HomeCoordinator.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		F8D16CAE2B576C7E008359AA /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				F8D16CAF2B576CA1008359AA /* RegisterViewController.swift */,
+				F8D16CB12B576CB3008359AA /* RegisterViewModel.swift */,
+				F8D16CB32B576CC7008359AA /* RegisterCoordinator.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,13 +262,21 @@
 				F819F26F2B4E33C70042E4F8 /* AppCoordinator.swift in Sources */,
 				F819F2622B4E33370042E4F8 /* SplashViewModel.swift in Sources */,
 				F819F24F2B4E32E50042E4F8 /* ViewController.swift in Sources */,
+				F1CF537C2B58BE50009FC605 /* TextFieldCustom.swift in Sources */,
+				BF801EE22B5A1E1F0046DF6E /* DataBase.swift in Sources */,
+				66E73C722B58CCCD00D306C0 /* CheckMarkCustom.swift in Sources */,
+				F8D16CB22B576CB3008359AA /* RegisterViewModel.swift in Sources */,
 				F819F24B2B4E32E50042E4F8 /* AppDelegate.swift in Sources */,
 				F819F2642B4E33480042E4F8 /* SplashCoordinator.swift in Sources */,
+				BF801EDF2B5A1B710046DF6E /* User.swift in Sources */,
 				F819F2762B4E37910042E4F8 /* HomeCoordinator.swift in Sources */,
+				F8D16CB02B576CA1008359AA /* RegisterViewController.swift in Sources */,
 				F819F2692B4E337E0042E4F8 /* LoginViewController.swift in Sources */,
 				F819F26D2B4E33B50042E4F8 /* Utils.swift in Sources */,
 				F819F24D2B4E32E50042E4F8 /* SceneDelegate.swift in Sources */,
 				F819F2742B4E37820042E4F8 /* HomeViewModel.swift in Sources */,
+				BFA437FF2B689D5B00E84408 /* UserDefaultsKeys.swift in Sources */,
+				F8D16CB42B576CC7008359AA /* RegisterCoordinator.swift in Sources */,
 				F819F26B2B4E33900042E4F8 /* LoginCoordinator.swift in Sources */,
 				F819F2602B4E33230042E4F8 /* SplashViewController.swift in Sources */,
 				F819F2672B4E336F0042E4F8 /* LoginViewModel.swift in Sources */,
@@ -360,7 +432,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6784N866Q6;
+				DEVELOPMENT_TEAM = QSVNAXXAAU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = basesDeDatos1/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -368,6 +440,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -388,7 +461,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6784N866Q6;
+				DEVELOPMENT_TEAM = QSVNAXXAAU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = basesDeDatos1/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -396,6 +469,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

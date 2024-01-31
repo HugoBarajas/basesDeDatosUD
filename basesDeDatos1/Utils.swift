@@ -162,7 +162,7 @@ public extension UIView {
 }
 struct SColors{
   static let redPrimary = UIColor(red: 209 / 255, green: 3 / 255, blue: 51 / 255, alpha: 1)
-  static let pinkLow = UIColor(red: 218 / 255, green: 40 / 255, blue: 82 / 255, alpha: 1)
+  static let bluelow = UIColor(red: 70 / 255, green: 183 / 255, blue: 215 / 255, alpha: 1)
   static let pinkSemiWhite = UIColor(red: 243 / 255, green: 214 / 255, blue: 219 / 255, alpha: 1)
   
   static let yellowSemiWhite = UIColor(red: 254 / 255, green: 250 / 255, blue: 238 / 255, alpha: 1)

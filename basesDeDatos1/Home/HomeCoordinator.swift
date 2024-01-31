@@ -22,7 +22,13 @@ class HomeCoordinator : Coordinator{
     let viewModel = HomeViewModel()
     viewModel.coordinator = self
     view.viewModel = viewModel
-    navigationController.setViewControllers([view], animated: true)
+    navigationController.pushViewController(view, animated: true)
+  }
+  
+  func goToLogin(){
+    let coordinatorLogin = LoginCoordinator(navigationController: navigationController)
+    childCoordinator.append(coordinatorLogin)
+    coordinatorLogin.startCoordinator()
   }
   
   
