@@ -79,6 +79,7 @@ class LoginViewController: UIViewController {
     view.addSubview(paswordTextField!)
     paswordTextField!.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 50, height: 35, left: nil, top: 35, right: nil, bottom: nil, withAnchor: .top, relativeToView: userTextField)
     
+    passwordForget.addTarget(self, action: #selector(goToChangePassword), for: .touchUpInside)
     view.addSubview(passwordForget)
     passwordForget.addAnchorsAndSize(width: 200, height: 12, left: 0, top: 10, right: nil, bottom: nil, withAnchor: .top, relativeToView: paswordTextField)
     
@@ -173,7 +174,12 @@ class LoginViewController: UIViewController {
   @objc func registerAction(){
     viewModel.goToRegister()
   }
+  
+  @objc func goToChangePassword(){
+    viewModel.goToChangePassword()
+  }
 }
+
 
 /*
  UserDefaults es una herramienta nativa que nos ayuda a almacenar datos o informacion de manera local, siendo persistente en el dispositivo
