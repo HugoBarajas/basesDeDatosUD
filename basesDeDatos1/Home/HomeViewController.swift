@@ -48,14 +48,6 @@ class HomeViewController: UIViewController {
         return imageVic
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        initUI()
-      showUser()
-    }
-  
-  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
@@ -65,6 +57,14 @@ class HomeViewController: UIViewController {
   
     navigationItem.hidesBackButton = true
     navigationItem.rightBarButtonItem = closeButton
+  }
+  
+  
+  override func viewDidLoad() {
+      super.viewDidLoad()
+      view.backgroundColor = .white
+      initUI()
+  
   }
     
     func initUI(){
@@ -76,18 +76,10 @@ class HomeViewController: UIViewController {
         initVicCard()
     }
   
-  
-  func showUser(){
-    if let user = UserDefaults.standard.getUser(){
-      
-      print(user)
-    }
-  }
-  
-  
+
   @objc func logout(){
     print("Log out")
-    UserDefaults.standard.deleteUser()
+    DataBase.shared.loggout()
     viewModel.goToLogin()
   }
     

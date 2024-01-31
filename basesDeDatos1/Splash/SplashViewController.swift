@@ -31,12 +31,10 @@ class SplashViewController: UIViewController {
     view.addSubview(imageSplash)
     imageSplash.addAnchorsAndCenter(centerX: true, centerY: true, width: 300, height: 300, left: nil, top: nil, right: nil, bottom: nil)
     
-    
-    
   }
   
   func setUpTimer(){
-    if let user = UserDefaults.standard.getUser(){
+    if let _ = DataBase.shared.getUserLogged(){
       Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(goToHome), userInfo: nil, repeats: false)
     }else{
       Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(goToLogin), userInfo: nil, repeats: false)

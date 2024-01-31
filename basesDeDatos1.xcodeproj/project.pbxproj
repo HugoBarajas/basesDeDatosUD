@@ -10,6 +10,7 @@
 		66E73C722B58CCCD00D306C0 /* CheckMarkCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E73C712B58CCCD00D306C0 /* CheckMarkCustom.swift */; };
 		BF801EDF2B5A1B710046DF6E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF801EDE2B5A1B710046DF6E /* User.swift */; };
 		BF801EE22B5A1E1F0046DF6E /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF801EE12B5A1E1F0046DF6E /* DataBase.swift */; };
+		BFA437FF2B689D5B00E84408 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA437FE2B689D5B00E84408 /* UserDefaultsKeys.swift */; };
 		F1CF537C2B58BE50009FC605 /* TextFieldCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CF537B2B58BE50009FC605 /* TextFieldCustom.swift */; };
 		F819F24B2B4E32E50042E4F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F24A2B4E32E50042E4F8 /* AppDelegate.swift */; };
 		F819F24D2B4E32E50042E4F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F24C2B4E32E50042E4F8 /* SceneDelegate.swift */; };
@@ -37,6 +38,7 @@
 		66E73C712B58CCCD00D306C0 /* CheckMarkCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkCustom.swift; sourceTree = "<group>"; };
 		BF801EDE2B5A1B710046DF6E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BF801EE12B5A1E1F0046DF6E /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		BFA437FE2B689D5B00E84408 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		F1CF537B2B58BE50009FC605 /* TextFieldCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCustom.swift; sourceTree = "<group>"; };
 		F819F2472B4E32E50042E4F8 /* basesDeDatos1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = basesDeDatos1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F819F24A2B4E32E50042E4F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				BF801EE12B5A1E1F0046DF6E /* DataBase.swift */,
+				BFA437FE2B689D5B00E84408 /* UserDefaultsKeys.swift */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -124,14 +127,14 @@
 		F819F2492B4E32E50042E4F8 /* basesDeDatos1 */ = {
 			isa = PBXGroup;
 			children = (
+				F819F26E2B4E33C70042E4F8 /* AppCoordinator.swift */,
+				F819F26C2B4E33B50042E4F8 /* Utils.swift */,
 				BF801EE02B5A1E110046DF6E /* DataBase */,
 				BF801EDD2B5A1B5A0046DF6E /* Models */,
 				66E73C702B58CC8700D306C0 /* CheckMarkCustom */,
 				F1CF537A2B58BE11009FC605 /* TextFieldCustom */,
 				F8D16CAE2B576C7E008359AA /* Register */,
 				F819F2702B4E372E0042E4F8 /* Home */,
-				F819F26E2B4E33C70042E4F8 /* AppCoordinator.swift */,
-				F819F26C2B4E33B50042E4F8 /* Utils.swift */,
 				F819F2652B4E334E0042E4F8 /* Login */,
 				F819F25E2B4E33030042E4F8 /* Splash */,
 				F819F24A2B4E32E50042E4F8 /* AppDelegate.swift */,
@@ -272,6 +275,7 @@
 				F819F26D2B4E33B50042E4F8 /* Utils.swift in Sources */,
 				F819F24D2B4E32E50042E4F8 /* SceneDelegate.swift in Sources */,
 				F819F2742B4E37820042E4F8 /* HomeViewModel.swift in Sources */,
+				BFA437FF2B689D5B00E84408 /* UserDefaultsKeys.swift in Sources */,
 				F8D16CB42B576CC7008359AA /* RegisterCoordinator.swift in Sources */,
 				F819F26B2B4E33900042E4F8 /* LoginCoordinator.swift in Sources */,
 				F819F2602B4E33230042E4F8 /* SplashViewController.swift in Sources */,
