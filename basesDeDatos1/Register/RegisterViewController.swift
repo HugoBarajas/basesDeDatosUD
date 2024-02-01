@@ -236,11 +236,21 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
     
 
+    func hola(){
+        print("hola")
+    }
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-      
+      guard let currentText = textField.text as NSString? else {
+                  return true
+              }
       if textField == names || textField == lastName || textField == mothersMaidenName{
 
           
+          let newText = currentText.replacingCharacters(in: range, with: string)
+
+                  if newText.count < 2 || newText.count > 50 {
+                      return false
+                  }
           let allowedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
           let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
           let typedCharacterSet = CharacterSet(charactersIn: string)
