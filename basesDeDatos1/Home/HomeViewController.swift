@@ -18,6 +18,13 @@ class HomeViewController: UIViewController {
         return button
     }()
     
+    var masculineView : UIView = {
+       var masculineView = UIView()
+        masculineView.backgroundColor = .systemBlue
+        masculineView.layer.cornerRadius = 20
+        return masculineView
+    }()
+    
     
     
   override func viewWillAppear(_ animated: Bool) {
@@ -34,13 +41,15 @@ class HomeViewController: UIViewController {
   
   override func viewDidLoad() {
       super.viewDidLoad()
-      view.backgroundColor = .systemBlue
+      view.backgroundColor = .white
       initUI()
   
   }
     
     func initUI(){
-      
+        view.addSubview(masculineView)
+        masculineView.addAnchorsAndCenter(centerX: true, centerY: false, width: width-20, height: height/3, left: nil, top: 110, right: nil, bottom: nil)
+        
     }
   
 
