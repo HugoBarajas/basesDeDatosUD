@@ -7,31 +7,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        opciones.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return opciones[row]
-        }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let opcionSeleccionada = opciones[row]
-        print("Seleccionaste: \(opcionSeleccionada)")
-        
-        if opcionSeleccionada == "Selecciona tu genero"{
-            print("seleccionaste genero")
-            
-            let alert = UIAlertController(title: "Selecciona tu genero", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(alert, animated: true)
-        }
-    }
+class RegisterViewController: UIViewController, UITextFieldDelegate {
     
   var viewModel : RegisterViewModel!
   
@@ -189,7 +165,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
   func initUI(){
       pickerGender.delegate = self
       pickerGender.dataSource = self
-      
+     
     view.addSubview(names)
     names.addAnchorsAndCenter(centerX: true, centerY: false, width: width - 10, height: 50, left: nil, top: 90, right: nil, bottom: nil)
       
@@ -309,11 +285,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
       let alert = UIAlertController(title: "Alguno de tus campos está vacío", message: "", preferredStyle: .alert)
       alert.addAction(UIAlertAction(title: "Ok", style: .default))
       present(alert, animated: true)
-      } else if ((gender?.contains("")) != nil){
-          
-          let alert = UIAlertController(title: "Error al seleccionar tu genero", message: "Por favor selecciona tu genero", preferredStyle: .alert)
+        
+        if gender == "Selecciona tu género" {
+          let alert = UIAlertController(title: "Alguno de tus campos está vacío", message: "", preferredStyle: .alert)
           alert.addAction(UIAlertAction(title: "Ok", style: .default))
           present(alert, animated: true)
+           }
            
       }else {
         print("todo cool aun")
@@ -355,6 +332,34 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     
   
   }
+extension RegisterViewController:  UIPickerViewDelegate, UIPickerViewDataSource {
+  
+  func numberOfComponents(in pickerView: UIPickerView) -> Int {
+      return 1
+  }
+  
+  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+      opciones.count
+  }
+  
+  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+          return opciones[row]
+      }
+  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+      let opcionSeleccionada = opciones[row]
+      print("Seleccionaste: \(opcionSeleccionada)")
+      
+      if opcionSeleccionada == "Selecciona tu genero"{
+          print("seleccionaste genero")
+          
+//          let alert = UIAlertController(title: "Selecciona tu genero", message: "", preferredStyle: .alert)
+//          alert.addAction(UIAlertAction(title: "Ok", style: .default))
+//          present(alert, animated: true)
+      }
+  }
+  
+  
+}
     
     
     
