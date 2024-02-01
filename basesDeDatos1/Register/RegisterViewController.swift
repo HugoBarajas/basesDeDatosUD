@@ -45,6 +45,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
      var textField = UITextField()
      textField.placeholder = "Contraseña"
      textField.isSecureTextEntry = true
+     textField.textContentType = .oneTimeCode
      textField.backgroundColor = .white
      return textField
         }()
@@ -53,6 +54,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
       var textField = UITextField()
       textField.placeholder = "Confirmar contraseña"
       textField.isSecureTextEntry = true
+      textField.textContentType = .oneTimeCode
       textField.backgroundColor = .white
       return textField
         }()
