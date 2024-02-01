@@ -36,4 +36,10 @@ class LoginCoordinator : Coordinator{
     coordinatorRegister.startCoordinator()
     
   }
+  
+  func goToChangePassword(){
+    let coordinatorChangePassword = ChangePasswordCoordinator(navigationController: navigationController)
+    childCoordinator.append(coordinatorChangePassword)
+    coordinatorChangePassword.startCoordinator()
+  }
 }

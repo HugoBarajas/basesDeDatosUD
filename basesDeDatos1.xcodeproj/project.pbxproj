@@ -29,6 +29,10 @@
 		F819F2722B4E37710042E4F8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F2712B4E37710042E4F8 /* HomeViewController.swift */; };
 		F819F2742B4E37820042E4F8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F2732B4E37820042E4F8 /* HomeViewModel.swift */; };
 		F819F2762B4E37910042E4F8 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819F2752B4E37910042E4F8 /* HomeCoordinator.swift */; };
+		F89445462B69F3D300654776 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89445452B69F3D300654776 /* ChangePasswordViewController.swift */; };
+		F89445482B69F3F200654776 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89445472B69F3F200654776 /* ChangePasswordViewModel.swift */; };
+		F894454A2B69F40B00654776 /* ChangePasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89445492B69F40B00654776 /* ChangePasswordCoordinator.swift */; };
+		F894454D2B69F80B00654776 /* ValidateDataUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F894454C2B69F80B00654776 /* ValidateDataUser.swift */; };
 		F8D16CB02B576CA1008359AA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D16CAF2B576CA1008359AA /* RegisterViewController.swift */; };
 		F8D16CB22B576CB3008359AA /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D16CB12B576CB3008359AA /* RegisterViewModel.swift */; };
 		F8D16CB42B576CC7008359AA /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D16CB32B576CC7008359AA /* RegisterCoordinator.swift */; };
@@ -59,6 +63,10 @@
 		F819F2712B4E37710042E4F8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F819F2732B4E37820042E4F8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F819F2752B4E37910042E4F8 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		F89445452B69F3D300654776 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		F89445472B69F3F200654776 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
+		F89445492B69F40B00654776 /* ChangePasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordCoordinator.swift; sourceTree = "<group>"; };
+		F894454C2B69F80B00654776 /* ValidateDataUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateDataUser.swift; sourceTree = "<group>"; };
 		F8D16CAF2B576CA1008359AA /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F8D16CB12B576CB3008359AA /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		F8D16CB32B576CC7008359AA /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
@@ -138,6 +146,7 @@
 				F819F2652B4E334E0042E4F8 /* Login */,
 				F819F25E2B4E33030042E4F8 /* Splash */,
 				F819F24A2B4E32E50042E4F8 /* AppDelegate.swift */,
+				F89445442B69F36400654776 /* ChangePassword */,
 				F819F24C2B4E32E50042E4F8 /* SceneDelegate.swift */,
 				F819F24E2B4E32E50042E4F8 /* ViewController.swift */,
 				F819F2502B4E32E50042E4F8 /* Main.storyboard */,
@@ -176,6 +185,25 @@
 				F819F2752B4E37910042E4F8 /* HomeCoordinator.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		F89445442B69F36400654776 /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				F894454B2B69F7CE00654776 /* SubViews */,
+				F89445452B69F3D300654776 /* ChangePasswordViewController.swift */,
+				F89445472B69F3F200654776 /* ChangePasswordViewModel.swift */,
+				F89445492B69F40B00654776 /* ChangePasswordCoordinator.swift */,
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
+		F894454B2B69F7CE00654776 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				F894454C2B69F80B00654776 /* ValidateDataUser.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		F8D16CAE2B576C7E008359AA /* Register */ = {
@@ -259,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F894454D2B69F80B00654776 /* ValidateDataUser.swift in Sources */,
 				F819F26F2B4E33C70042E4F8 /* AppCoordinator.swift in Sources */,
 				F819F2622B4E33370042E4F8 /* SplashViewModel.swift in Sources */,
 				F819F24F2B4E32E50042E4F8 /* ViewController.swift in Sources */,
@@ -272,15 +301,18 @@
 				F819F2762B4E37910042E4F8 /* HomeCoordinator.swift in Sources */,
 				F8D16CB02B576CA1008359AA /* RegisterViewController.swift in Sources */,
 				F819F2692B4E337E0042E4F8 /* LoginViewController.swift in Sources */,
+				F89445482B69F3F200654776 /* ChangePasswordViewModel.swift in Sources */,
 				F819F26D2B4E33B50042E4F8 /* Utils.swift in Sources */,
 				F819F24D2B4E32E50042E4F8 /* SceneDelegate.swift in Sources */,
 				F819F2742B4E37820042E4F8 /* HomeViewModel.swift in Sources */,
 				BFA437FF2B689D5B00E84408 /* UserDefaultsKeys.swift in Sources */,
+				F894454A2B69F40B00654776 /* ChangePasswordCoordinator.swift in Sources */,
 				F8D16CB42B576CC7008359AA /* RegisterCoordinator.swift in Sources */,
 				F819F26B2B4E33900042E4F8 /* LoginCoordinator.swift in Sources */,
 				F819F2602B4E33230042E4F8 /* SplashViewController.swift in Sources */,
 				F819F2672B4E336F0042E4F8 /* LoginViewModel.swift in Sources */,
 				F819F2722B4E37710042E4F8 /* HomeViewController.swift in Sources */,
+				F89445462B69F3D300654776 /* ChangePasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

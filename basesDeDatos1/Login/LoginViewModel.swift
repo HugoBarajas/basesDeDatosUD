@@ -18,5 +18,9 @@ class LoginViewModel{
   func goToRegister(){
     coordinator.goToRegister()
   }
+  
+  func goToChangePassword(){
+    coordinator.goToChangePassword()
+  }
 
 }
