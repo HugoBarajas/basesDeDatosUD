@@ -67,28 +67,23 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
      return button
         }()
     
-    /*var eyeImageView: UIImageView = {
-     var imageView = UIImageView(image: UIImage(named: "ojito"))
-     imageView.contentMode = .scaleAspectFit
-     imageView.isHidden = false
-     imageView.tintColor = .black
-      return imageView */
+   
     
     var eyeButton: UIButton = {
         var button = UIButton()
-        button.setImage(UIImage(named: "ojito"), for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
+       button.setImage(UIImage(named: "ojitocerrado"), for: .normal)
+       button.imageView?.contentMode = .scaleAspectFit
         button.addTarget(self, action: #selector(showPasswordButtonTapped), for: .touchUpInside)
-        return button
+       return button
         
     }()
         
-        var eyeButton2: UIButton = {
-            var button = UIButton()
-            button.setImage(UIImage(named: "ojito"), for: .normal)
-            button.imageView?.contentMode = .scaleAspectFit
+       var eyeButton2: UIButton = {
+           var button = UIButton()
+           button.setImage(UIImage(named: "ojitocerrado"), for: .normal)
+           button.imageView?.contentMode = .scaleAspectFit
             button.addTarget(self, action: #selector(showPasswordButtonTappedConfirmPassword), for: .touchUpInside)
-            return button
+           return button
        
     }()
         
@@ -107,7 +102,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     textView.backgroundColor = .clear
     textView.textColor = .white
     textView.font = UIFont(name: "Arial Bold", size: 15)
-    textView.text = "Debe contener minimo 8 caracteres, al menos una letra mayuscula y un numero, no podras utilizar una cotraseña anterior, asi como contraseñas faciles de adivinar (ejemplo: 123456)"
+    textView.text = "Debe contener 6 caracteres, al menos una letra mayuscula y un numero, no podras utilizar una cotraseña anterior, asi como contraseñas faciles de adivinar (ejemplo: 123456)"
     
     return textView
   }()
@@ -219,28 +214,28 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @objc func showPasswordButtonTapped() {
      password.isSecureTextEntry.toggle()
      showPasswordButton.isSelected = !showPasswordButton.isSelected
-        eyeButton.setImage(UIImage(named: showPasswordButton.isSelected ? "ojitocerrado" : "ojitoabierto"), for: .normal)
+        eyeButton.setImage(UIImage(named: showPasswordButton.isSelected ? "ojitoabierto" : "ojitocerrado"), for: .normal)
         }
        
     @objc func showPasswordButtonTappedConfirmPassword() {
         confirmPassword.isSecureTextEntry.toggle()
         showPasswordButton.isSelected = !showPasswordButton.isSelected
-        eyeButton2.setImage(UIImage(named: showPasswordButton.isSelected ? "ojitocerrado" : "ojitoabierto"), for: .normal)
+        eyeButton2.setImage(UIImage(named: showPasswordButton.isSelected ?  "ojitoabierto" : "ojitocerrado"), for: .normal)
     }
     
 
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
     
-    let maxLength : Int
+    let minLength : Int
     
     if textField == password || textField == confirmPassword{
       
-      maxLength = 6
+      minLength = 6
       let currentString: NSString = textField.text! as NSString
               
       let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
       
-      return newString.length <= maxLength
+      return newString.length <= minLength
     }
     
     if textField == phoneNumberTextField{
