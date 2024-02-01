@@ -59,6 +59,13 @@ class DataBase{
     guard let user = filteredUser.first else { return nil }
     return user
   }
+    
+    func getUserByNumber(number : String) -> User?{
+      let users = getUsers()
+      let filteredUser = users.filter({$0.number == number})
+      guard let user = filteredUser.first else { return nil }
+      return user
+    }
   
   func loggout(){
     userDefaults.deleteData(key: UserDefaultsKeys.userLogged.rawValue)

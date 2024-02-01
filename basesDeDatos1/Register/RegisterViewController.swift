@@ -239,10 +239,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
       
       if textField == names || textField == lastName || textField == mothersMaidenName{
+
+          
           let allowedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
           let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
           let typedCharacterSet = CharacterSet(charactersIn: string)
           let alphabet = allowedCharacterSet.isSuperset(of: typedCharacterSet)
+    
           return alphabet
       }
     
@@ -260,25 +263,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     if textField == phoneNumberTextField{
       let allowedCharacters = CharacterSet.decimalDigits
-          
       let characterSet = CharacterSet(charactersIn: string)
-      
       return allowedCharacters.isSuperset(of: characterSet)
-      
     }
-    
-    if textField == email{
-     
-      let emailReg = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-      let emailTest = NSPredicate(format:"SELF MATCHES %@", emailReg)
-      return emailTest.evaluate(with: string)
-      
-        
-        
-    }
-    
-   
-    
     return true
   }
 
@@ -291,7 +278,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     let number = phoneNumberTextField.text
     let password1 = password.text
     let pasword2 = confirmPassword.text
-    
+     
     
     if (email1?.isEmpty ?? true) || (name?.isEmpty ?? true) || (lastName1?.isEmpty ?? true) || (lastName2?.isEmpty ?? true) || (number?.isEmpty ?? true) || (password1?.isEmpty ?? true) || (pasword2?.isEmpty ?? true) {
       
@@ -300,12 +287,25 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
       present(alert, animated: true)
     } else {
         print("todo cool aun")
-      
-      if let _ = dataBase.getUserByEmail(email: email1 ?? ""){
+        
+        let regex = try! NSRegularExpression(pattern: "^[0-9]{10}$", options: .caseInsensitive)
+        let matches = regex.matches(in: number ?? "", options: [], range: NSRange(location: 0, length: number?.utf16.count ?? 0))
+                if matches.count > 0 {
+                    print("Número de teléfono válido")
+                } else {
+                    print("Número de teléfono no válido")
+                    let alert = UIAlertController(title: "Error ingresando teléfono", message: "El número de teléfono ingresado no es válido", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                    present(alert, animated: true)
+                }
+        
+        
+        if let _ = dataBase.getUserByEmail(email: email1 ?? ""), let campos = dataBase.getUserByNumber(number: number ?? ""){
+            
         let alert = UIAlertController(title: "Error creando usuario", message: "Email ya registrado, usa otro porfi", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         present(alert, animated: true)
-      }else{
+      }else {
         
         let dataBaseUsers = dataBase.getUsers()
         let user = User(id: dataBaseUsers.count + 1, user: name, name: lastName1, number: number, email: email1,password: password1, isActive: true)
@@ -324,10 +324,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
       alert.addAction(UIAlertAction(title: "Ok", style: .default))
       present(alert, animated: true)
     }
-    
-    
-    
-    
+      
   }
   
   func isValidEmail(email: String) -> Bool {
@@ -335,7 +332,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
           let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
           return emailPredicate.evaluate(with: email)
       }
-
 
 }
 
