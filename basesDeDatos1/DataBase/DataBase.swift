@@ -35,6 +35,7 @@ class DataBase{
     var users = getUsers()
     users.append(user)
     userDefaults.putData(object: users, key: UserDefaultsKeys.users.rawValue)
+      print(users)
   }
   
   func deleteUser(user : User){

@@ -302,12 +302,20 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     let gender = pickerGender.textInputContextIdentifier
     
     
-    if (email1?.isEmpty ?? true) || (name?.isEmpty ?? true) || (lastName1?.isEmpty ?? true) || (lastName2?.isEmpty ?? true) || (number?.isEmpty ?? true) || (password1?.isEmpty ?? true) || (pasword2?.isEmpty ?? true) {
+      if (email1?.isEmpty ?? true) || (name?.isEmpty ?? true) || (lastName1?.isEmpty ?? true) || (lastName2?.isEmpty ?? true) || (number?.isEmpty ?? true) || (password1?.isEmpty ?? true) || (pasword2?.isEmpty ?? true){
       
+          
+          
       let alert = UIAlertController(title: "Alguno de tus campos está vacío", message: "", preferredStyle: .alert)
       alert.addAction(UIAlertAction(title: "Ok", style: .default))
       present(alert, animated: true)
-    } else {
+      } else if ((gender?.contains("")) != nil){
+          
+          let alert = UIAlertController(title: "Error al seleccionar tu genero", message: "Por favor selecciona tu genero", preferredStyle: .alert)
+          alert.addAction(UIAlertAction(title: "Ok", style: .default))
+          present(alert, animated: true)
+           
+      }else {
         print("todo cool aun")
       
       if let _ = dataBase.getUserByEmail(email: email1 ?? ""){
@@ -317,7 +325,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
       }else{
         
         let dataBaseUsers = dataBase.getUsers()
-        let user = User(id: dataBaseUsers.count + 1, user: name, name: lastName1, number: number, email: email1,password: password1, isActive: true)
+        let user = User(id: dataBaseUsers.count + 1, user: name, name: lastName1, number: number, email: email1,password: password1, isActive: true, gender: gender)
         
         dataBase.registerUser(user: user)
         dataBase.userLogged(user: user)

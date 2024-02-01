@@ -176,6 +176,7 @@ struct SColors{
   static let grisFB = UIColor(red: 50 / 255, green: 51 / 255, blue: 53 / 255, alpha: 1)
   static let gris = UIColor(red: 174 / 255, green: 178 / 255, blue: 182 / 255, alpha: 1)
   static let negroFB = UIColor(red: 36 / 255, green: 37 / 255, blue: 39 / 255, alpha: 1)
-  
+  static let azulOscuro = UIColor(red: 0.00, green: 0.30, blue: 0.81, alpha: 1.0)
+    
 }
 
