@@ -230,39 +230,29 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         eyeButton2.setImage(UIImage(named: showPasswordButton.isSelected ?  "ojitoabierto" : "ojitocerrado"), for: .normal)
     }
     
-
-    func hola(){
-        print("hola")
-    }
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-      guard let currentText = textField.text as NSString? else {
-                  return true
-              }
       if textField == names || textField == lastName || textField == mothersMaidenName{
-
           
-          let newText = currentText.replacingCharacters(in: range, with: string)
+          guard let currentText = textField.text as NSString? else {
+                     return true
+                 }
+                 let newText = currentText.replacingCharacters(in: range, with: string)
 
-                  if newText.count < 2 || newText.count > 50 {
-                      return false
-                  }
-          let allowedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-          let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
-          let typedCharacterSet = CharacterSet(charactersIn: string)
-          let alphabet = allowedCharacterSet.isSuperset(of: typedCharacterSet)
-    
-          return alphabet
+                 if newText.rangeOfCharacter(from: CharacterSet.letters.inverted) == nil {
+                     let formattedText = formatText(newText)
+                     textField.text = formattedText
+                     return false
+                 }
+
+                 return false
       }
-    
+      
     let minLength : Int
     
     if textField == password || textField == confirmPassword{
-      
       minLength = 6
       let currentString: NSString = textField.text! as NSString
-              
       let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
-      
       return newString.length <= minLength
     }
     
@@ -273,8 +263,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
     return true
   }
+    
+    func formatText(_ text: String) -> String {
+            guard !text.isEmpty else {
+                return text
+            }
 
-  
+            let firstLetter = text.prefix(1).uppercased()
+            let restOfText = text.dropFirst().lowercased()
+
+            return firstLetter + restOfText
+        }
+    
   @objc func textFieldValidation(){
     let email1 = email.text
     let name = names.text
@@ -290,27 +290,31 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
       let alert = UIAlertController(title: "Alguno de tus campos está vacío", message: "", preferredStyle: .alert)
       alert.addAction(UIAlertAction(title: "Ok", style: .default))
       present(alert, animated: true)
-    } else {
+    }else if let nameText = names.text, nameText.count < 3 {
+        let alert = UIAlertController(title: "Nombre debe tener al menos 3 caracteres", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        present(alert, animated: true)
+    }else if let lastName1Text = lastName.text, lastName1Text.count < 3 {
+        let alert = UIAlertController(title: "El primer apellido debe tener al menos 3 caracteres", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        present(alert, animated: true)
+    } else if let lastName2Text = mothersMaidenName.text, lastName2Text.count < 3 {
+        let alert = UIAlertController(title: "El segundo apellido debe tener al menos 3 caracteres", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        present(alert, animated: true)
+    }else if let numberText = phoneNumberTextField.text, numberText.count != 10 {
+        let alert = UIAlertController(title: "Número de teléfono debe ser de 10 dígitos", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        present(alert, animated: true)
+    }else {
         print("todo cool aun")
         
-        let regex = try! NSRegularExpression(pattern: "^[0-9]{10}$", options: .caseInsensitive)
-        let matches = regex.matches(in: number ?? "", options: [], range: NSRange(location: 0, length: number?.utf16.count ?? 0))
-                if matches.count > 0 {
-                    print("Número de teléfono válido")
-                } else {
-                    print("Número de teléfono no válido")
-                    let alert = UIAlertController(title: "Error ingresando teléfono", message: "El número de teléfono ingresado no es válido", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default))
-                    present(alert, animated: true)
-                }
-        
-        
-        if let _ = dataBase.getUserByEmail(email: email1 ?? ""), let campos = dataBase.getUserByNumber(number: number ?? ""){
+        if let _ = dataBase.getUserByEmail(email: email1 ?? ""){
             
         let alert = UIAlertController(title: "Error creando usuario", message: "Email ya registrado, usa otro porfi", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         present(alert, animated: true)
-      }else {
+    }else {
         
         let dataBaseUsers = dataBase.getUsers()
         let user = User(id: dataBaseUsers.count + 1, user: name, name: lastName1, number: number, email: email1,password: password1, isActive: true)
