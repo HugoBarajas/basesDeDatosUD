@@ -53,6 +53,8 @@ class TextFieldCustom: UIView {
     }
     
     func viewEye(){
+      
+      let texto = textFieldCustom.text
         
         textFieldCustom.isSecureTextEntry = true
         
