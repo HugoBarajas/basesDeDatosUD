@@ -9,6 +9,8 @@ import UIKit
 
 class ValidateDataUser: UIView {
   
+  let viewController = ChangePasswordViewController()
+  
   var requirementChangeLabel : UILabel = {
     var label = UILabel()
     label.font = UIFont(name: "Arial Bold", size: 18)
@@ -159,6 +161,10 @@ class ValidateDataUser: UIView {
     }
   }
   
-  
+  func alert(title: String, message: String) {
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Ok", style: .default))
+    viewController.present(alert, animated: true)
+   }
   
 }
