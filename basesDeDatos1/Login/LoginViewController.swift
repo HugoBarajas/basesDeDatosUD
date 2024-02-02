@@ -107,11 +107,8 @@ class LoginViewController: UIViewController {
     let paswordTF = paswordTextField?.textFieldCustom.text
     let iOSVersion = UIDevice.current.systemVersion
     
-<<<<<<< HEAD
-    if !userTextField!.isValidEmail() || paswordTF!.count < 4  {
-=======
     if !userTextField!.isValidEmail() || paswordTF!.count < 4 {
->>>>>>> Register
+
       let chaleAction = UIAlertAction(title: "Intentar de nuevo", style: .destructive){ _ in
         print("Credenciales incorrectas")
       }
