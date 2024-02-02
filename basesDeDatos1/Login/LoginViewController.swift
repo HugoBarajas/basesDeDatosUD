@@ -100,11 +100,11 @@ class LoginViewController: UIViewController {
   
   @objc func loginAction(){
     print("Login")
-    let usuarioTF = userTextField?.textFieldCustom.text?.lowercased()
+    let usuarioTF = userTextField?.textFieldCustom.text
     let paswordTF = paswordTextField?.textFieldCustom.text
     let iOSVersion = UIDevice.current.systemVersion
     
-    if !userTextField!.isValidEmail() || paswordTF!.count < 6 {
+    if !userTextField!.isValidEmail() || paswordTF!.count < 3 {
       let chaleAction = UIAlertAction(title: "Intentar de nuevo", style: .destructive){ _ in
         print("Credenciales incorrectas")
       }
