@@ -151,8 +151,6 @@ class LoginViewController: UIViewController {
     }
     present(alert, animated:  true)
     
-    
-    
   }
   
   func savePassword(password: String){
