@@ -241,19 +241,20 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                   return true
               }
       if textField == names || textField == lastName || textField == mothersMaidenName{
+        guard let currentText = textField.text as NSString? else {
+                   return true
+                 }
+                 let newText = currentText.replacingCharacters(in: range, with: string)
+                 if newText.rangeOfCharacter(from: CharacterSet.letters.inverted) == nil {
+                   let formattedText = formatText(newText)
+                   textField.text = formattedText
+                   return false
+                 }
+                 return false
+           
 
           
-          let newText = currentText.replacingCharacters(in: range, with: string)
-
-                  if newText.count < 2 || newText.count > 50 {
-                      return false
-                  }
-          let allowedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-          let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
-          let typedCharacterSet = CharacterSet(charactersIn: string)
-          let alphabet = allowedCharacterSet.isSuperset(of: typedCharacterSet)
-    
-          return alphabet
+          
       }
     
     let minLength : Int
@@ -290,9 +291,25 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     if (email1?.isEmpty ?? true) || (name?.isEmpty ?? true) || (lastName1?.isEmpty ?? true) || (lastName2?.isEmpty ?? true) || (number?.isEmpty ?? true) || (password1?.isEmpty ?? true) || (pasword2?.isEmpty ?? true) {
       
       let alert = UIAlertController(title: "Alguno de tus campos está vacío", message: "", preferredStyle: .alert)
-      alert.addAction(UIAlertAction(title: "Ok", style: .default))
-      present(alert, animated: true)
-    } else {
+         alert.addAction(UIAlertAction(title: "Ok", style: .default))
+         present(alert, animated: true)
+        }else if let nameText = names.text, nameText.count < 3 {
+          let alert = UIAlertController(title: "Nombre debe tener al menos 3 caracteres", message: "", preferredStyle: .alert)
+          alert.addAction(UIAlertAction(title: "Ok", style: .default))
+          present(alert, animated: true)
+        }else if let lastName1Text = lastName.text, lastName1Text.count < 3 {
+          let alert = UIAlertController(title: "El primer apellido debe tener al menos 3 caracteres", message: "", preferredStyle: .alert)
+          alert.addAction(UIAlertAction(title: "Ok", style: .default))
+          present(alert, animated: true)
+        } else if let lastName2Text = mothersMaidenName.text, lastName2Text.count < 3 {
+          let alert = UIAlertController(title: "El segundo apellido debe tener al menos 3 caracteres", message: "", preferredStyle: .alert)
+          alert.addAction(UIAlertAction(title: "Ok", style: .default))
+          present(alert, animated: true)
+        }else if let numberText = phoneNumberTextField.text, numberText.count != 10 {
+          let alert = UIAlertController(title: "Número de teléfono debe ser de 10 dígitos", message: "", preferredStyle: .alert)
+          alert.addAction(UIAlertAction(title: "Ok", style: .default))
+          present(alert, animated: true)
+        }else {
         print("todo cool aun")
         
         let regex = try! NSRegularExpression(pattern: "^[0-9]{10}$", options: .caseInsensitive)
@@ -307,7 +324,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 }
         
         
-        if let _ = dataBase.getUserByEmail(email: email1 ?? ""), let campos = dataBase.getUserByNumber(number: number ?? ""){
+        if let _ = dataBase.getUserByEmail(email: email1 ?? ""){
             
         let alert = UIAlertController(title: "Error creando usuario", message: "Email ya registrado, usa otro porfi", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
@@ -338,6 +355,14 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
           let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
           let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
           return emailPredicate.evaluate(with: email)
+      }
+  func formatText(_ text: String) -> String {
+        guard !text.isEmpty else {
+          return text
+        }
+        let firstLetter = text.prefix(1).uppercased()
+        let restOfText = text.dropFirst().lowercased()
+        return firstLetter + restOfText
       }
 
 }

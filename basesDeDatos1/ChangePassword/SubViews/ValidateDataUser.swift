@@ -9,7 +9,7 @@ import UIKit
 
 class ValidateDataUser: UIView {
   
-  let viewController = ChangePasswordViewController()
+  //let viewController = ChangePasswordViewController()
   
   var requirementChangeLabel : UILabel = {
     var label = UILabel()
@@ -146,12 +146,15 @@ class ValidateDataUser: UIView {
     
     if password.textFieldCustom.text == confirmPassword.textFieldCustom.text{
       if var user = DataBase.shared.getUserByEmail(email: emailTextField.textFieldCustom.text ?? ""){
+        print(user)
         user.password = password.textFieldCustom.text
+        print(user)
         let newUser : User = User(id: user.id!, user: user.user!, name: user.name!, number: user.number!, email: user.email!, password: password.textFieldCustom.text!, isActive: true)
         
         print("nuevo usuario:\(newUser)")
         
         DataBase.shared.registerUser(user: newUser)
+        print("ahora el user es\(newUser)")
   
       }else{
         print("usuario no encontrado")
@@ -161,10 +164,6 @@ class ValidateDataUser: UIView {
     }
   }
   
-  func alert(title: String, message: String) {
-    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "Ok", style: .default))
-    viewController.present(alert, animated: true)
-   }
+  
   
 }

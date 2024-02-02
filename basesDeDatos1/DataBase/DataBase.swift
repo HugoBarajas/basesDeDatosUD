@@ -37,6 +37,7 @@ class DataBase{
     userDefaults.putData(object: users, key: UserDefaultsKeys.users.rawValue)
   }
   
+  
   func deleteUser(user : User){
     var users = getUsers()
     if let index = users.firstIndex(where: {$0.id == user.id}){ // Closure
@@ -54,18 +55,13 @@ class DataBase{
   }
   
   func getUserByEmail(email : String) -> User?{
-    let users = getUsers()
+    var users = getUsers()
     let filteredUser = users.filter({$0.email == email})
     guard let user = filteredUser.first else { return nil }
     return user
   }
     
-    func getUserByNumber(number : String) -> User?{
-      let users = getUsers()
-      let filteredUser = users.filter({$0.number == number})
-      guard let user = filteredUser.first else { return nil }
-      return user
-    }
+
   
   func loggout(){
     userDefaults.deleteData(key: UserDefaultsKeys.userLogged.rawValue)
