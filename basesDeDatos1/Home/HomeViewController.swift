@@ -14,15 +14,18 @@ class HomeViewController: UIViewController {
     
     var genderLabel: UILabel = {
         var label = UILabel()
-        label.text = "Hombre"
-        label.textColor = .white
+        //label.text = "gender"
+        label.textAlignment = .center
+        label.textColor = .black
+        label.backgroundColor = .red
+        
         return label
     }()
     
     var nameLabel: UILabel = {
         var label = UILabel()
-        label.text
         label.textColor = .white
+        label.backgroundColor = .red
         return label
     }()
     
@@ -33,7 +36,7 @@ class HomeViewController: UIViewController {
     }()
     
     var masculineView : UIView = {
-       var masculineView = UIView()
+        var masculineView = UIView()
         masculineView.backgroundColor = .systemBlue
         masculineView.layer.cornerRadius = 20
         return masculineView
@@ -66,24 +69,24 @@ class HomeViewController: UIViewController {
     
     
     
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    setupNavigation()
-    navigationController?.navigationBar.isHidden = false
-  
-    let closeButton = UIBarButtonItem(image: UIImage(named: "cerrarSesion"), style: .plain, target: self, action: #selector(logout))
-      navigationController?.navigationBar.isTranslucent = false
-    navigationItem.hidesBackButton = true
-    navigationItem.rightBarButtonItem = closeButton
-  }
-  
-  
-  override func viewDidLoad() {
-      super.viewDidLoad()
-      view.backgroundColor = .white
-      initUI()
-      getUser()
-  }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigation()
+        navigationController?.navigationBar.isHidden = false
+        
+        let closeButton = UIBarButtonItem(image: UIImage(named: "cerrarSesion"), style: .plain, target: self, action: #selector(logout))
+        navigationController?.navigationBar.isTranslucent = false
+        navigationItem.hidesBackButton = true
+        navigationItem.rightBarButtonItem = closeButton
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        initUI()
+        getUser()
+    }
     
     func initUI(){
         let navigationBarHeight = view.safeAreaLayoutGuide.topAnchor
@@ -99,30 +102,36 @@ class HomeViewController: UIViewController {
         profilePicture.addSubview(buttonAddImage)
         buttonAddImage.addAnchorsAndSize(width: 20, height: 20, left:nil , top: nil, right: 0, bottom: 0)
         
-        view.addSubview(genderLabel)
-        
+        masculineView.addSubview(genderLabel)
+        genderLabel.addAnchorsAndCenter(centerX: true, centerY: false, width: width-30, height: 20, left: nil, top: 10, right: nil, bottom: nil, withAnchor: .top,relativeToView: profilePicture)
         
     }
-  @objc func logout(){
-    print("Log out")
-    DataBase.shared.loggout()
-    viewModel.goToLogin()
-  }
+    @objc func logout(){
+        print("Log out")
+        DataBase.shared.loggout()
+        viewModel.goToLogin()
+    }
     func setupNavigation(){
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .systemYellow
         self.navigationController?.navigationBar.standardAppearance = appearance;
         self.navigationController?.navigationBar.scrollEdgeAppearance = self.navigationController?.navigationBar.standardAppearance
-      }
-    func getUser() -> User?{
+    }
+    func getUser() -> String{
         if let user = dataBase.getUserLogged(){
             let userName = user.name
-            print(userName!)
+            let userGender = user.gender
+            //User.append[userName, userGender]
+            //let user = User(user: userName, gender: userGender)
+            genderLabel.text = userGender
+            nameLabel.text = userName
+       print(user)
+            return userName!
             
-            return userName ?? ""
+        } else{
+            return ""
         }
-       return
     }
+    
 }
-
