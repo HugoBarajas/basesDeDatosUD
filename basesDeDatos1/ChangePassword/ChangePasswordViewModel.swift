@@ -11,4 +11,7 @@ class ChangePasswordViewModel{
   
   var coordinator : ChangePasswordCoordinator!
   
+  func goToLogin(){
+    coordinator.goToLogin()
+  }
 }

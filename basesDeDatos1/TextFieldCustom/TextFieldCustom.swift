@@ -16,6 +16,7 @@ class TextFieldCustom: UIView {
     var textFieldCustom: UITextField = {
         var textField = UITextField()
         textField.backgroundColor = .white
+        textField.textContentType = .oneTimeCode
         return textField
     }()
     var viewPasswordButton: UIButton = {

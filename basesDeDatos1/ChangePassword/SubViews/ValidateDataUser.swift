@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol VaildateDataUserDefaults{
+  func goToLogin()
+  func alert(title: String, message: String)
+}
+
 class ValidateDataUser: UIView {
   
-  //let viewController = ChangePasswordViewController()
+  var delegate : VaildateDataUserDefaults?
   
   var requirementChangeLabel : UILabel = {
     var label = UILabel()
@@ -91,6 +96,8 @@ class ValidateDataUser: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
+  
+  
   func initUI(){
     
     self.addSubview(requirementChangeLabel)
@@ -111,6 +118,7 @@ class ValidateDataUser: UIView {
     
     self.addSubview(password)
     password.addAnchorsAndSize(width: nil, height: 35, left: 15, top: 15, right: 15, bottom: nil, withAnchor: .top, relativeToView:  buttonDataOk)
+    
     
     self.addSubview(confirmPassword)
     confirmPassword.addAnchorsAndSize(width: nil, height: 35, left: 15, top: 15, right: 15, bottom: nil, withAnchor: .top, relativeToView: password)
@@ -136,9 +144,11 @@ class ValidateDataUser: UIView {
         buttonChangePassword.isHidden = false
       }else{
         print("error en tus datos")
+        delegate?.alert(title: "error en tus datos", message: "")
       }
     }else{
       print("usuario no encontrado")
+      delegate?.alert(title: "Usuario no encontrado", message: "")
     }
     
   }
@@ -146,24 +156,25 @@ class ValidateDataUser: UIView {
     
     if password.textFieldCustom.text == confirmPassword.textFieldCustom.text{
       if var user = DataBase.shared.getUserByEmail(email: emailTextField.textFieldCustom.text ?? ""){
-        print(user)
+      
         user.password = password.textFieldCustom.text
-        print(user)
-        let newUser : User = User(id: user.id!, user: user.user!, name: user.name!, number: user.number!, email: user.email!, password: password.textFieldCustom.text!, isActive: true)
+
+        DataBase.shared.registerUser(user: user)
         
-        print("nuevo usuario:\(newUser)")
+        UserDefaults.standard.synchronize()
+        print("ahora el user es\(user)")
         
-        DataBase.shared.registerUser(user: newUser)
-        print("ahora el user es\(newUser)")
-  
+        delegate?.goToLogin()
+        
       }else{
         print("usuario no encontrado")
+        delegate?.alert(title: "Usuario no encontrado", message: "")
       }
     }else{
       print("los campos de tu contraseña no son iguales")
+      delegate?.alert(title: "los campos de tu contraseña no son iguales", message: "")
     }
   }
-  
   
   
 }

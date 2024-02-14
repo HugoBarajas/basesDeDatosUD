@@ -31,12 +31,23 @@ class DataBase{
     return activeUsers
   }
   
-  func registerUser(user : User){
+ /* func registerUser(user : User){
     var users = getUsers()
     users.append(user)
     userDefaults.putData(object: users, key: UserDefaultsKeys.users.rawValue)
+    print("se llego aqui")
+  }*/
+
+  func registerUser(user: User) {
+      var users = getUsers()
+      if let index = users.firstIndex(where: { $0.id == user.id }) {
+          users[index] = user
+      } else {
+          users.append(user)
+      }
+      userDefaults.putData(object: users, key: UserDefaultsKeys.users.rawValue)
+      print("Se llegó aquí")
   }
-  
   
   func deleteUser(user : User){
     var users = getUsers()
@@ -55,7 +66,7 @@ class DataBase{
   }
   
   func getUserByEmail(email : String) -> User?{
-    var users = getUsers()
+    let users = getUsers()
     let filteredUser = users.filter({$0.email == email})
     guard let user = filteredUser.first else { return nil }
     return user

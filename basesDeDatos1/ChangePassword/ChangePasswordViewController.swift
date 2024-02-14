@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ChangePasswordViewController: UIViewController {
+
+
+class ChangePasswordViewController: UIViewController{
   
   var viewModel : ChangePasswordViewModel!
   
@@ -17,13 +19,14 @@ class ChangePasswordViewController: UIViewController {
   }()
   
   
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
+    validateDataUser.delegate = self
     initUI()
     
   }
+  
   
   func initUI(){
     view.addSubview(validateDataUser)
@@ -32,3 +35,19 @@ class ChangePasswordViewController: UIViewController {
   
   
 }
+
+
+extension ChangePasswordViewController : VaildateDataUserDefaults{
+  func goToLogin() {
+    viewModel.goToLogin()
+  }
+  func alert(title: String, message: String) {
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Ok", style: .default))
+    present(alert, animated: true)
+   }
+  
+  
+}
+
+

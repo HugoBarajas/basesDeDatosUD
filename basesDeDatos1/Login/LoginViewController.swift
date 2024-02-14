@@ -105,7 +105,7 @@ class LoginViewController: UIViewController {
     print("Login")
     let usuarioTF = userTextField?.textFieldCustom.text
     let paswordTF = paswordTextField?.textFieldCustom.text
-    let iOSVersion = UIDevice.current.systemVersion
+    
     
     if !userTextField!.isValidEmail() || paswordTF!.count < 4  {
       let chaleAction = UIAlertAction(title: "Intentar de nuevo", style: .destructive){ _ in
@@ -120,6 +120,7 @@ class LoginViewController: UIViewController {
     if let user = dataBase.getUserByEmail(email: usuarioTF ?? ""){
       // Aqui sabemos que el email si esta registrado
       if usuarioTF == user.email && paswordTF == user.password{
+
         dataBase.userLogged(user: user)
         viewModel.goToHome()
       }else{

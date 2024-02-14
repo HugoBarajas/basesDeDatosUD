@@ -25,5 +25,10 @@ class ChangePasswordCoordinator : Coordinator{
     navigationController.pushViewController(view, animated: true)
   }
   
+  func goToLogin(){
+    let coordinatorLogin = LoginCoordinator(navigationController: navigationController)
+    childCoordinator.append(coordinatorLogin)
+    coordinatorLogin.startCoordinator()
+  }
   
 }
