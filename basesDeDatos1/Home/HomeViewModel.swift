@@ -13,4 +13,6 @@ class HomeViewModel{
   func goToLogin(){
     coordinator.goToLogin()
   }
+  
+  
 }

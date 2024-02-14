@@ -51,14 +51,23 @@ class HomeViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
+    setupNavigation()
     navigationController?.navigationBar.isHidden = false
   
     let closeButton = UIBarButtonItem(image: UIImage(named: "cerrarSesion"), style: .plain, target: self, action: #selector(logout))
-  
+    navigationController?.navigationBar.isTranslucent = false
     navigationItem.hidesBackButton = true
     navigationItem.rightBarButtonItem = closeButton
   }
   
+  
+  func setupNavigation(){
+      let appearance = UINavigationBarAppearance()
+      appearance.configureWithOpaqueBackground()
+      appearance.backgroundColor = .red
+      self.navigationController?.navigationBar.standardAppearance = appearance;
+      self.navigationController?.navigationBar.scrollEdgeAppearance = self.navigationController?.navigationBar.standardAppearance
+    }
   
   override func viewDidLoad() {
       super.viewDidLoad()
