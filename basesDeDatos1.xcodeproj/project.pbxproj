@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		66E73C722B58CCCD00D306C0 /* CheckMarkCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E73C712B58CCCD00D306C0 /* CheckMarkCustom.swift */; };
+		BF7CC0222B7C6AB300E9A6AC /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7CC0212B7C6AB300E9A6AC /* TabbarController.swift */; };
+		BF7CC0242B7C6AE700E9A6AC /* TabbarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7CC0232B7C6AE700E9A6AC /* TabbarViewModel.swift */; };
+		BF7CC0292B7C6BE400E9A6AC /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7CC0282B7C6BE400E9A6AC /* DashboardViewController.swift */; };
+		BF7CC02B2B7C6D4F00E9A6AC /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7CC02A2B7C6D4F00E9A6AC /* TabbarCoordinator.swift */; };
 		BF801EDF2B5A1B710046DF6E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF801EDE2B5A1B710046DF6E /* User.swift */; };
 		BF801EE22B5A1E1F0046DF6E /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF801EE12B5A1E1F0046DF6E /* DataBase.swift */; };
 		BFA437FF2B689D5B00E84408 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA437FE2B689D5B00E84408 /* UserDefaultsKeys.swift */; };
@@ -36,6 +40,10 @@
 
 /* Begin PBXFileReference section */
 		66E73C712B58CCCD00D306C0 /* CheckMarkCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkCustom.swift; sourceTree = "<group>"; };
+		BF7CC0212B7C6AB300E9A6AC /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
+		BF7CC0232B7C6AE700E9A6AC /* TabbarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewModel.swift; sourceTree = "<group>"; };
+		BF7CC0282B7C6BE400E9A6AC /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		BF7CC02A2B7C6D4F00E9A6AC /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
 		BF801EDE2B5A1B710046DF6E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BF801EE12B5A1E1F0046DF6E /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		BFA437FE2B689D5B00E84408 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
@@ -81,6 +89,24 @@
 				66E73C712B58CCCD00D306C0 /* CheckMarkCustom.swift */,
 			);
 			path = CheckMarkCustom;
+			sourceTree = "<group>";
+		};
+		BF7CC0202B7C6A4F00E9A6AC /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				BF7CC0212B7C6AB300E9A6AC /* TabbarController.swift */,
+				BF7CC0232B7C6AE700E9A6AC /* TabbarViewModel.swift */,
+				BF7CC02A2B7C6D4F00E9A6AC /* TabbarCoordinator.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		BF7CC0272B7C6BAD00E9A6AC /* MenoresDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				BF7CC0282B7C6BE400E9A6AC /* DashboardViewController.swift */,
+			);
+			path = MenoresDashboard;
 			sourceTree = "<group>";
 		};
 		BF801EDD2B5A1B5A0046DF6E /* Models */ = {
@@ -129,6 +155,8 @@
 			children = (
 				F819F26E2B4E33C70042E4F8 /* AppCoordinator.swift */,
 				F819F26C2B4E33B50042E4F8 /* Utils.swift */,
+				BF7CC0272B7C6BAD00E9A6AC /* MenoresDashboard */,
+				BF7CC0202B7C6A4F00E9A6AC /* Tabbar */,
 				BF801EE02B5A1E110046DF6E /* DataBase */,
 				BF801EDD2B5A1B5A0046DF6E /* Models */,
 				66E73C702B58CC8700D306C0 /* CheckMarkCustom */,
@@ -260,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F819F26F2B4E33C70042E4F8 /* AppCoordinator.swift in Sources */,
+				BF7CC0222B7C6AB300E9A6AC /* TabbarController.swift in Sources */,
 				F819F2622B4E33370042E4F8 /* SplashViewModel.swift in Sources */,
 				F819F24F2B4E32E50042E4F8 /* ViewController.swift in Sources */,
 				F1CF537C2B58BE50009FC605 /* TextFieldCustom.swift in Sources */,
@@ -274,12 +303,15 @@
 				F819F2692B4E337E0042E4F8 /* LoginViewController.swift in Sources */,
 				F819F26D2B4E33B50042E4F8 /* Utils.swift in Sources */,
 				F819F24D2B4E32E50042E4F8 /* SceneDelegate.swift in Sources */,
+				BF7CC0242B7C6AE700E9A6AC /* TabbarViewModel.swift in Sources */,
+				BF7CC0292B7C6BE400E9A6AC /* DashboardViewController.swift in Sources */,
 				F819F2742B4E37820042E4F8 /* HomeViewModel.swift in Sources */,
 				BFA437FF2B689D5B00E84408 /* UserDefaultsKeys.swift in Sources */,
 				F8D16CB42B576CC7008359AA /* RegisterCoordinator.swift in Sources */,
 				F819F26B2B4E33900042E4F8 /* LoginCoordinator.swift in Sources */,
 				F819F2602B4E33230042E4F8 /* SplashViewController.swift in Sources */,
 				F819F2672B4E336F0042E4F8 /* LoginViewModel.swift in Sources */,
+				BF7CC02B2B7C6D4F00E9A6AC /* TabbarCoordinator.swift in Sources */,
 				F819F2722B4E37710042E4F8 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
